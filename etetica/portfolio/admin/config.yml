@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main # ou master, dependendo do seu GitHub
+
+media_folder: "Portfólio/static/img" # Onde as imagens novas vão ser salvas
+public_folder: "/Portfólio/static/img" # O caminho que o site vai usar para ler as imagens
+
+collections:
+  - name: "conteudo"
+    label: "Conteúdo do Site"
+    files:
+      - file: "dados.json"
+        label: "Página Inicial"
+        name: "home"
+        fields:
+          - {label: "Título Principal", name: "titulo_hero", widget: "string"}
+          - {label: "Subtítulo Principal", name: "subtitulo_hero", widget: "text"}
+          - {label: "Foto Sobre Mim", name: "foto_sobre", widget: "image"}
+          - {label: "Texto Sobre Mim", name: "texto_sobre", widget: "text"}
+          - label: "Galeria de Resultados"
+            name: "galeria"
+            widget: "list"
+            fields:
+              - {label: "Foto do Resultado", name: "foto", widget: "image"}
