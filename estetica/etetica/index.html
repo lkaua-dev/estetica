@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<!-- O atributo lang="pt-PT" define o idioma da página. A classe scroll-smooth faz com que o clique nos links do menu deslize suavemente até a seção. -->
+<html lang="pt-PT" class="scroll-smooth">
+
+<head>
+    <!-- Configurações básicas do documento (caracteres e responsividade para celular) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece na aba do navegador -->
+    <title>Mikaely Yasmin Gomes | Estética Avançada & Bem-estar</title>
+
+    <!-- Importação do Tailwind CSS (Framework de estilos) via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Importação das fontes do Google Fonts (Inter e Playfair Display) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Importação da biblioteca de ícones Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Script do Netlify CMS para login e gerenciamento de conteúdo -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Folha de estilos CSS personalizada. Se o caminho mudar, atualize aqui. -->
+    <link rel="stylesheet" href="/etetica/portfolio/static/css/style.css">
+</head>
+
+<body class="antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- CABEÇALHO / MENU DE NAVEGAÇÃO -->
+    <header class="theme-header fixed w-full top-0 z-50 backdrop-blur-md transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- LOGO: Aqui é onde você coloca a imagem da sua logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home">
+                        <!-- Para trocar a logo, altere o caminho dentro de src="" -->
+                        <img src="/etetica/portfolio/static/img/logo1.svg"
+                            alt="Logo Mikaely Yasmin Estética" class="h-12 w-auto object-contain">
+                    </a>
+                </div>
+
+                <!-- MENU DESKTOP (Para computadores) -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-sm font-medium transition-colors">Início</a>
+                    <a href="#sobre" class="nav-link text-sm font-medium transition-colors">Sobre Mim</a>
+                    <a href="#servicos" class="nav-link text-sm font-medium transition-colors">Tratamentos</a>
+                    <a href="#portfolio" class="nav-link text-sm font-medium transition-colors">Práticas</a>
+                </nav>
+
+                <!-- BOTÃO DE AVALIAÇÃO (Desktop) -->
+                <div class="hidden md:flex">
+                    <a href="#contato"
+                        class="btn-primary px-6 py-2 rounded-full font-medium transition-colors duration-300">
+                        Agendar Avaliação
+                    </a>
+                </div>
+
+                <!-- ÍCONE DO MENU MOBILE (Aparece apenas em celulares) -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="mobile-menu-btn focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU MOBILE Oculto por padrão, ativado via JavaScript -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="#home"
+                    class="mobile-link block px-3 py-2 rounded-md text-base font-medium transition-colors">Início</a>
+                <a href="#sobre"
+                    class="mobile-link block px-3 py-2 rounded-md text-base font-medium transition-colors">Sobre Mim</a>
+                <a href="#servicos"
+                    class="mobile-link block px-3 py-2 rounded-md text-base font-medium transition-colors">Tratamentos</a>
+                <a href="#portfolio"
+                    class="mobile-link block px-3 py-2 rounded-md text-base font-medium transition-colors">Práticas</a>
+                <a href="#contato"
+                    class="btn-primary block px-3 py-2 mt-4 text-center rounded-full font-medium">Agendar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO 1: INÍCIO (HERO) -->
+    <!-- A classe bg-hero geralmente puxa uma imagem de fundo definida no CSS (style.css) -->
+    <section id="home" class="bg-hero min-h-screen flex items-center pt-20 relative">
+        <div class="absolute inset-0 bg-overlay z-0"></div> <!-- Camada escura por cima da imagem de fundo -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="max-w-2xl">
+                <p class="text-accent font-medium tracking-widest uppercase text-sm mb-4">Estética Avançada & Bem-estar
+                </p>
+
+                <!-- Título principal. O id="cms-titulo-hero" indica que este texto é editável via Netlify CMS -->
+                <h1 id="cms-titulo-hero" class="text-white text-5xl md:text-6xl font-serif leading-tight mb-6">
+                    Realce a sua <span class="text-accent italic">beleza natural</span> com excelência.
+                </h1>
+
+                <!-- Subtítulo. Editável via CMS -->
+                <p id="cms-subtitulo-hero" class="text-gray-300 text-lg mb-8 font-light max-w-lg">
+                    Protocolos personalizados para cuidar do seu corpo, devolvendo a sua autoestima e confiança.
+                </p>
+
+                <!-- Botões de Ação (WhatsApp e Ver Tratamentos) -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contato"
+                        class="btn-whatsapp px-8 py-4 rounded-full font-bold text-center transition-all duration-300 flex items-center justify-center gap-2">
+                        <i class="ph ph-whatsapp text-xl"></i> Falar no WhatsApp
+                    </a>
+                    <a href="#servicos"
+                        class="btn-secondary px-8 py-4 rounded-full font-medium text-center transition-colors duration-300">
+                        Ver Tratamentos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: SOBRE MIM -->
+    <section id="sobre" class="theme-section-dark py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <!-- FOTO "SOBRE MIM" -->
+                <div class="relative">
+                    <div
+                        class="image-border absolute inset-0 rounded-full transform translate-x-3 translate-y-3 opacity-50 z-0">
+                    </div>
+
+                    <!-- Imagem da profissional. Para alterar, mude o link dentro do src="". 
+                        O id="cms-foto-sobre" indica que é editável via CMS. -->
+                    <img id="cms-foto-sobre" src="/etetica/portfolio/static/img/gomes.jpeg"
+                        alt="Foto da Profissional"
+                        class="relative rounded-full object-cover w-full h-[600px] shadow-2xl z-10">
+                </div>
+
+                <!-- TEXTOS SOBRE MIM -->
+                <div>
+                    <h2 class="text-accent text-sm font-medium tracking-widest uppercase mb-2">Quem sou eu</h2>
+                    <h3 class="text-white text-4xl font-serif mb-6 leading-tight">Olá, sou a <br>Mikaely Yasmin Gomes
+                    </h3>
+
+                    <!-- Textos descritivos. id="cms-texto-sobre" indica que é editável via CMS -->
+                    <div id="cms-texto-sobre" class="text-gray-400 space-y-4 font-light leading-relaxed">
+                        <p>Sou técnica em estética, apaixonada por cuidar de pessoas e realçar a beleza natural de cada
+                            cliente. Acredito que a estética vai muito além da aparência é sobre autoestima, bem-estar e
+                            confiança.</p>
+                        <p>Atuo na área com dedicação, sempre buscando oferecer atendimentos de qualidade, com cuidado,
+                            atenção e resultados que fazem diferença. Estou em constante aprendizado dentro da estética,
+                            me aprimorando a cada dia para entregar o melhor.</p>
+                    </div>
+
+                    <!-- DADOS/ESTATÍSTICAS -->
+                    <div class="mt-8 grid grid-cols-2 gap-6">
+                        <div class="stat-box pl-4">
+                            <h4 class="text-accent text-2xl font-serif mb-1">+40</h4>
+                            <p class="text-gray-500 text-sm">Pacientes Atendidos</p>
+                        </div>
+                        <div class="stat-box pl-4">
+                            <h4 class="text-accent text-2xl font-serif mb-1">1.6 Anos</h4>
+                            <p class="text-gray-500 text-sm">De Experiência</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: SERVIÇOS / TRATAMENTOS -->
+    <section id="servicos" class="theme-section-card py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-accent text-sm font-medium tracking-widest uppercase mb-2">Especialidades</h2>
+                <h3 class="text-brand-dark text-4xl font-serif">Tratamentos Oferecidos</h3>
+                <p class="text-brand-dark mt-4 max-w-2xl mx-auto font-light opacity-80">Protocolos exclusivos e
+                    personalizados para atender às suas necessidades específicas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- CARD DE SERVIÇO 1 -->
+                <div class="service-card p-8 rounded-2xl transition-all duration-300 group shadow-lg hover:shadow-xl">
+                    <div
+                        class="service-icon w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <!-- Ícone do serviço (Phosphor Icons) -->
+                        <i class="ph ph-sparkle text-2xl"></i>
+                    </div>
+                    <h4 class="text-brand-dark text-xl font-serif mb-3">Auriculoterapia</h4>
+                    <p class="text-brand-dark font-light text-sm leading-relaxed mb-6 opacity-80">
+                        Técnicas de auriculoterapia para equilíbrio energético, alívio de dores e estímulo de pontos
+                        terapêuticos.
+                    </p>
+                    <a href="#contato"
+                        class="service-link text-sm font-medium transition-colors flex items-center gap-1">
+                        Saber mais <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- CARD DE SERVIÇO 2 -->
+                <div class="service-card p-8 rounded-2xl transition-all duration-300 group shadow-lg hover:shadow-xl">
+                    <div
+                        class="service-icon w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <i class="ph ph-drop text-2xl"></i>
+                    </div>
+                    <h4 class="text-brand-dark text-xl font-serif mb-3">Drenagem Linfática</h4>
+                    <p class="text-brand-dark font-light text-sm leading-relaxed mb-6 opacity-80">
+                        Procedimentos como drenagem linfática para redução de inchaço, melhora da circulação e promoção
+                        do bem-estar.
+                    </p>
+                    <a href="#contato"
+                        class="service-link text-sm font-medium transition-colors flex items-center gap-1">
+                        Saber mais <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- CARD DE SERVIÇO 3 -->
+                <div class="service-card p-8 rounded-2xl transition-all duration-300 group shadow-lg hover:shadow-xl">
+                    <div
+                        class="service-icon w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <i class="ph ph-hands-clapping text-2xl"></i>
+                    </div>
+                    <h4 class="text-brand-dark text-xl font-serif mb-3">Reflexologia</h4>
+                    <p class="text-brand-dark font-light text-sm leading-relaxed mb-6 opacity-80">
+                        Tratamentos de reflexologia para equilíbrio do corpo, alívio de tensões e estímulo de pontos
+                        terapêuticos.
+                    </p>
+                    <a href="#contato"
+                        class="service-link text-sm font-medium transition-colors flex items-center gap-1">
+                        Saber mais <i class="ph ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4: PORTFÓLIO / GALERIA DE RESULTADOS -->
+    <section id="portfolio" class="theme-section-dark py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-accent text-sm font-medium tracking-widest uppercase mb-2">O Meu Trabalho</h2>
+                    <h3 class="text-white text-4xl font-serif">Galeria de Práticas</h3>
+                </div>
+            </div>
+
+            <!-- CONTAINER DA GALERIA: id="cms-galeria-container" sinaliza controle via CMS -->
+            <div id="cms-galeria-container" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+                <!-- IMAGEM DA GALERIA 1 -->
+                <div class="aspect-square overflow-hidden rounded-lg">
+                    <!-- Para colocar as fotos dos resultados, troque a URL no atributo src="" abaixo -->
+                    <img src="/etetica/portfolio/static/img/1.jpeg" alt="Prática 1"
+                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+
+                <!-- IMAGEM DA GALERIA 2 -->
+                <div class="aspect-square overflow-hidden rounded-lg">
+                    <!-- Troque aqui o src="" -->
+                    <img src="/etetica/portfolio/static/img/2.jpeg" alt="Prática 2"
+                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+
+                <!-- IMAGEM DA GALERIA 3 -->
+                <div class="aspect-square overflow-hidden rounded-lg">
+                    <!-- Troque aqui o src="" -->
+                    <img src="/etetica/portfolio/static/img/3.jpeg" alt="Prática 3"
+                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+
+                <!-- IMAGEM DA GALERIA 4 -->
+                <div class="aspect-square overflow-hidden rounded-lg">
+                    <!-- Troque aqui o src="" -->
+                    <img src="/etetica/portfolio/static/img/4.jpeg"
+                        alt="Prática 4"
+                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5: CONTATO (CHAMADA PARA O WHATSAPP E INSTAGRAM) -->
+    <section id="contato" class="theme-section-card py-24 relative overflow-hidden">
+        <div
+            class="contact-blur absolute top-0 right-0 w-64 h-64 rounded-full mix-blend-multiply filter blur-3xl translate-x-1/2 -translate-y-1/2">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="contact-card rounded-3xl p-8 md:p-16 text-center max-w-4xl mx-auto shadow-2xl">
+                <h3 class="text-brand-dark text-3xl md:text-5xl font-serif mb-6">Pronta para realçar a sua <br><span
+                        class="text-accent italic">melhor versão?</span></h3>
+                <p class="text-brand-dark font-light mb-10 max-w-xl mx-auto opacity-80">
+                    Entre em contato agora mesmo para agendar a sua consulta ou acompanhe meu trabalho nas redes
+                    sociais.
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="https://wa.me/553173663820?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20seu%20trabalho%20de%20est%C3%A9tica%20e%20gostaria%20de%20marcar%20um%20hor%C3%A1rio%20com%20voc%C3%AA."
+                        target="_blank"
+                        class="btn-whatsapp w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105">
+                        <i class="ph-fill ph-whatsapp-logo text-[26px]"></i>
+                        <span class="mt-[2px]">Agendar via WhatsApp</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/mikaely_bernardo.0?igsh=MWR3MmF1ZHV3cGIyMg==" target="_blank"
+                        class="btn-instagram w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105">
+                        <i class="ph-fill ph-instagram-logo text-[26px]"></i>
+                        <span class="mt-[2px]">Siga no Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer class="theme-footer py-12">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-accent font-serif text-xl font-bold">
+                MIKAELY YASMIN | ESTÉTICA
+            </div>
+            <div class="text-gray-500 text-sm font-light text-center md:text-left">
+                <!-- O id="year" geralmente é preenchido automaticamente pelo JavaScript para mostrar o ano atual -->
+                &copy; <span id="year"></span> Mikaely Yasmin. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT CUSTOMIZADO: Importação das animações e comportamentos da página (ex: menu mobile, atualizar ano no rodapé) -->
+    <script src="/etetica/portfolio/static/js/home.js"></script>
+
+    <!-- SCRIPT NETLIFY CMS: Gerencia o redirecionamento de login no painel de administração -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
