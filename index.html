@@ -1241,25 +1241,20 @@
 
     .aviso-publico {
       background: rgba(220, 39, 67, 0.1);
-      /* Fundo sutilmente avermelhado/rosa */
       border: 1px solid rgba(220, 39, 67, 0.4);
-      /* Borda chamativa */
       color: #ff8fa3;
-      /* Texto num rosa/salmão luminoso */
       padding: 1rem 1.5rem;
       border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
+      display: flex; /* Mudamos para flex */
+      justify-content: center; /* Centraliza o ícone e o texto na horizontal */
+      align-items: center; /* Centraliza na vertical */
       gap: 0.6rem;
       font-weight: 400;
       font-size: 0.95rem;
-      margin-bottom: 2rem;
-      /* Empurra os botões para baixo */
-      margin-top: 0rem;
-      /* Dá um espaço dos botões */
+      margin: 0 auto 2rem auto; /* O 'auto' nas laterais centraliza a caixa inteira */
+      max-width: fit-content; /* Faz a caixa abraçar o texto no tamanho exato */
       box-shadow: 0 4px 20px rgba(220, 39, 67, 0.15);
-      /* Brilho suave em volta */
-      text-align: left;
+      text-align: center; /* Centraliza o texto */
     }
 
     .aviso-publico i {
@@ -1271,8 +1266,6 @@
       .aviso-publico {
         width: 100%;
         max-width: 360px;
-        justify-content: center;
-        text-align: center;
       }
     }
 
@@ -1489,7 +1482,7 @@
         </div>
 
         <div class="aviso-publico rv d1">
-          <i class="ph ph-info"></i>
+          <i class=""></i>
           <span><strong>Aviso:</strong> Atendimento exclusivo para o público feminino.</span>
         </div>
         <div class="ctb">
