@@ -725,7 +725,8 @@
     .svc:hover {
       transform: translateY(-10px);
       box-shadow: 0 32px 64px rgba(0, 0, 0, .32), 0 0 0 1px var(--a1);
-      background: rgba(143, 179, 226, .02); /* leve brilho no hover */
+      background: rgba(143, 179, 226, .02);
+      /* leve brilho no hover */
     }
 
     .svn {
@@ -1237,6 +1238,101 @@
         display: none
       }
     }
+
+    .aviso-publico {
+      background: rgba(220, 39, 67, 0.1);
+      /* Fundo sutilmente avermelhado/rosa */
+      border: 1px solid rgba(220, 39, 67, 0.4);
+      /* Borda chamativa */
+      color: #ff8fa3;
+      /* Texto num rosa/salmão luminoso */
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 400;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      /* Empurra os botões para baixo */
+      margin-top: 0rem;
+      /* Dá um espaço dos botões */
+      box-shadow: 0 4px 20px rgba(220, 39, 67, 0.15);
+      /* Brilho suave em volta */
+      text-align: left;
+    }
+
+    .aviso-publico i {
+      font-size: 1.4rem;
+      color: #ffb3c1;
+    }
+
+    @media(max-width:768px) {
+      .aviso-publico {
+        width: 100%;
+        max-width: 360px;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    .link-direitos {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s;
+      cursor: none;
+      /* Mantém o padrão do seu cursor customizado */
+    }
+
+    .link-direitos::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--ac);
+      transition: width 0.3s ease;
+    }
+
+    .link-direitos:hover {
+      color: var(--wh);
+    }
+
+    .link-direitos:hover::after {
+      width: 100%;
+    }
+
+    .dev-info {
+      display: inline-block;
+      margin-top: 0.4rem;
+      color: var(--g5);
+      /* Cor cinza mais escura para não roubar a atenção */
+    }
+
+    .link-github {
+      color: var(--g4);
+      /* Cinza um pouco mais claro */
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+      cursor: none;
+      /* Mantém o cursor de bolinha */
+    }
+
+    .link-github i {
+      font-size: 1.1rem;
+    }
+
+    .link-github:hover {
+      color: var(--wh);
+      /* Fica branco e acende quando passa o mouse */
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 
@@ -1343,14 +1439,16 @@
           <span class="svn">02</span>
           <div class="svi"><i class="ph ph-drop"></i></div>
           <h4>Masagem Relaxante</h4>
-          <p>Massagem que estimula o sistema linfático, reduz inchaço, melhora a circulação e auxilia na desintoxicação.</p>
+          <p>Massagem que estimula o sistema linfático, reduz inchaço, melhora a circulação e auxilia na desintoxicação.
+          </p>
           <a href="#contato" class="sva">Saber mais <i class="ph ph-arrow-right"></i></a>
         </div>
         <div class="svc rv d3">
           <span class="svn">03</span>
           <div class="svi"><i class="ph ph-hands-clapping"></i></div>
           <h4>Ventosaterapia</h4>
-          <p>A ventosaterapia é uma técnica antiga que usa ventosas para criar sucção na pele, estimulando a circulação e ajudando a aliviar tensões musculares.</p>
+          <p>A ventosaterapia é uma técnica antiga que usa ventosas para criar sucção na pele, estimulando a circulação
+            e ajudando a aliviar tensões musculares.</p>
           <a href="#contato" class="sva">Saber mais <i class="ph ph-arrow-right"></i></a>
         </div>
       </div>
@@ -1388,6 +1486,13 @@
         <h3>Pronta para a sua<br><em>melhor versão?</em></h3>
         <p>Agende a sua consulta agora mesmo ou acompanhe o meu trabalho nas redes sociais.</p>
         <div class="ctb">
+        </div>
+
+        <div class="aviso-publico rv d1">
+          <i class="ph ph-info"></i>
+          <span><strong>Aviso:</strong> Atendimento exclusivo para o público feminino.</span>
+        </div>
+        <div class="ctb">
           <a href="https://wa.me/553173663820?text=Ol%C3%A1%2C%20me%20interessei%20pelo%20seu%20trabalho%20de%20est%C3%A9tica%20e%20gostaria%20de%20marcar%20um%20hor%C3%A1rio%20com%20voc%C3%AA."
             target="_blank" class="bwa2"><i class="ph-fill ph-whatsapp-logo" style="font-size:1.25rem"></i> Agendar via
             WhatsApp</a>
@@ -1401,7 +1506,11 @@
   <footer>
     <div class="fti">
       <div class="ftb">MIKAELY YASMIN | ESTÉTICA</div>
-      <div class="ftc">&copy; <span id="year"></span> Mikaely Yasmin Gomes. Todos os direitos reservados.</div>
+      <div class="ftc">&copy; <span id="year"></span> Mikaely Yasmin Gomes. <a href="direitos-autorais.html"
+          class="link-direitos">Todos os direitos reservados.</a></div>
+      <span class="dev-info">Desenvolvido por <a href="https://github.com/lkaua-dev" target="_blank"
+          class="link-github"><i class="ph-fill ph-github-logo"></i>Lucas</a></span>
+    </div>
     </div>
   </footer>
 
@@ -1441,8 +1550,8 @@
     function toggleMenu(force) {
       const open = force !== undefined ? force : !mn.classList.contains('open');
       mn.classList.toggle('open', open);
-      hb.innerHTML = open 
-        ? '<i class="ph ph-x" style="font-size:1.5rem"></i>' 
+      hb.innerHTML = open
+        ? '<i class="ph ph-x" style="font-size:1.5rem"></i>'
         : '<i class="ph ph-list" style="font-size:1.8rem"></i>';
     }
 
@@ -1468,7 +1577,7 @@
     window.addEventListener('scroll', () => {
       // Navbar sólida ao rolar
       nb.classList.toggle('solid', window.scrollY > 24);
-      
+
       // Efeito Parallax no Hero
       if (hbg) {
         hbg.style.transform = `scale(1.1) translateY(${window.scrollY * .28}px)`;
@@ -1488,12 +1597,12 @@
     const counterObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
-        
+
         const el = e.target;
         const targetValue = parseInt(el.dataset.t);
         const suffix = el.dataset.s || '+';
         let current = 0;
-        
+
         const timer = setInterval(() => {
           current += targetValue / 55;
           if (current >= targetValue) {
@@ -1502,7 +1611,7 @@
           }
           el.textContent = Math.floor(current) + suffix;
         }, 22);
-        
+
         counterObserver.unobserve(el);
       });
     }, { threshold: .6 });
@@ -1555,4 +1664,5 @@
     }
   </script>
 </body>
+
 </html>
