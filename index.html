@@ -1245,16 +1245,22 @@
       color: #ff8fa3;
       padding: 1rem 1.5rem;
       border-radius: 12px;
-      display: flex; /* Mudamos para flex */
-      justify-content: center; /* Centraliza o ícone e o texto na horizontal */
-      align-items: center; /* Centraliza na vertical */
+      display: flex;
+      /* Mudamos para flex */
+      justify-content: center;
+      /* Centraliza o ícone e o texto na horizontal */
+      align-items: center;
+      /* Centraliza na vertical */
       gap: 0.6rem;
       font-weight: 400;
       font-size: 0.95rem;
-      margin: 0 auto 2rem auto; /* O 'auto' nas laterais centraliza a caixa inteira */
-      max-width: fit-content; /* Faz a caixa abraçar o texto no tamanho exato */
+      margin: 0 auto 2rem auto;
+      /* O 'auto' nas laterais centraliza a caixa inteira */
+      max-width: fit-content;
+      /* Faz a caixa abraçar o texto no tamanho exato */
       box-shadow: 0 4px 20px rgba(220, 39, 67, 0.15);
-      text-align: center; /* Centraliza o texto */
+      text-align: center;
+      /* Centraliza o texto */
     }
 
     .aviso-publico i {
@@ -1270,31 +1276,35 @@
     }
 
     .link-direitos {
-      color: inherit;
+      color: var(--ac);
+      /* Deixa o texto em azul claro (cor de destaque do site) */
       text-decoration: none;
       position: relative;
       transition: color 0.3s;
       cursor: none;
-      /* Mantém o padrão do seu cursor customizado */
+      font-weight: 400;
+      /* Deixa a letra um pouquinho mais nítida */
     }
 
+    /* A linha de baixo agora fica visível o tempo todo, mas meio transparente */
     .link-direitos::after {
       content: '';
       position: absolute;
       bottom: -2px;
       left: 0;
-      width: 0;
+      width: 100%;
       height: 1px;
-      background: var(--ac);
-      transition: width 0.3s ease;
+      background: var(--a5);
+      transition: background 0.3s ease;
     }
 
+    /* Quando passa o mouse, o texto e a linha ficam brancos e brilhantes */
     .link-direitos:hover {
       color: var(--wh);
     }
 
     .link-direitos:hover::after {
-      width: 100%;
+      background: var(--wh);
     }
 
     .dev-info {
@@ -1499,8 +1509,10 @@
   <footer>
     <div class="fti">
       <div class="ftb">MIKAELY YASMIN | ESTÉTICA</div>
-      <div class="ftc">&copy; <span id="year"></span> Mikaely Yasmin Gomes. <a href="direitos-autorais.html"
-          class="link-direitos">Todos os direitos reservados.</a></div>
+      <div class="ftc">
+        &copy; <span id="year"></span> Mikaely Yasmin Gomes. <a href="direitos-autorais.html"
+          class="link-direitos">Todos os direitos reservados. <i class="ph ph-link"></i></a>
+      </div>
       <span class="dev-info">Desenvolvido por <a href="https://github.com/lkaua-dev" target="_blank"
           class="link-github"><i class="ph-fill ph-github-logo"></i>Lucas</a></span>
     </div>
