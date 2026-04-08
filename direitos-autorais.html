@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Direitos Autorais | Mikaely Yasmin Gomes</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root {
+            --dk: #0C1523;
+            --nv: #192338;
+            --cb: #D9E1F1;
+            --ac: #8FB3E2;
+            --ad: #31487A;
+            --a1: rgba(143, 179, 226, .10);
+            --a5: rgba(143, 179, 226, .50);
+            --wh: #fff;
+            --g3: #d1d5db;
+            --g4: #9ca3af;
+            --g5: #6b7280
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            background: var(--dk);
+            color: var(--g3);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.8;
+            overflow-x: hidden;
+            cursor: none;
+            padding: 4rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- Cursor Customizado --- */
+        #cd {
+            width: 7px;
+            height: 7px;
+            background: var(--ac);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen
+        }
+
+        #cr {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--a5);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width .3s, height .3s, border-color .3s, background .3s
+        }
+
+        #cr.on {
+            width: 58px;
+            height: 58px;
+            border-color: var(--ac);
+            background: var(--a1)
+        }
+
+        @media(max-width:768px) {
+            body {
+                cursor: auto
+            }
+
+            #cd,
+            #cr {
+                display: none
+            }
+
+            a {
+                cursor: pointer !important
+            }
+        }
+
+        /* --- Layout da Página --- */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(12, 21, 35, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 2rem;
+            padding: 4rem;
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        /* --- Tipografia e Elementos --- */
+        h1,
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        h1 {
+            color: var(--wh);
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--a1);
+        }
+
+        h2 {
+            color: var(--ac);
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        strong {
+            color: var(--wh);
+            font-weight: 500;
+        }
+
+        /* --- Links --- */
+        a.link-padrao {
+            color: var(--ac);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+            font-weight: 400;
+            cursor: none;
+        }
+
+        a.link-padrao::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--wh);
+            transition: width 0.3s ease;
+        }
+
+        a.link-padrao:hover {
+            color: var(--wh);
+        }
+
+        a.link-padrao:hover::after {
+            width: 100%;
+        }
+
+        /* --- Botão Voltar --- */
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--g4);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.3s, transform 0.3s;
+            cursor: none;
+        }
+
+        .btn-voltar:hover {
+            color: var(--wh);
+            transform: translateX(-4px);
+        }
+
+        /* --- Responsivo --- */
+        @media(max-width: 600px) {
+            .container {
+                padding: 2.5rem 1.5rem;
+                border-radius: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cd"></div>
+    <div id="cr"></div>
+
+    <div class="container">
+        <a href="index.html" class="btn-voltar"><i class="ph ph-arrow-left"></i> Voltar para o início</a>
+
+        <h1>Avisos Legais e Direitos Autorais</h1>
+
+        <h2>Conteúdo e Propriedade Intelectual</h2>
+        <p>Todo o conteúdo, design, imagens, textos, organização estrutural e logotipos presentes neste site são de
+            propriedade exclusiva de <strong>Mikaely Yasmin Gomes</strong> e do desenvolvedor responsável pela criação
+            da plataforma, <strong>Kauã Lucas</strong>.</p>
+        <p>A proteção dos direitos de propriedade intelectual é garantida pela legislação brasileira, em especial a
+            <strong>Lei de Direitos Autorais (Lei Federal nº 9.610, de 19 de fevereiro de 1998)</strong>.
+        </p>
+
+        <h2>Proibição de Uso e Reprodução</h2>
+        <p>É expressamente proibida a cópia, reprodução, distribuição, modificação, adaptação, exibição pública ou
+            qualquer outra forma de utilização do conteúdo estrutural e visual deste site, no todo ou em parte, sem a
+            prévia e expressa autorização por escrito dos detentores dos direitos.</p>
+        <p>O uso não autorizado de qualquer material aqui contido configura violação de direitos autorais e sujeita o
+            infrator às sanções civis (indenização por danos materiais e morais, conforme os artigos 101 a 110 da Lei
+            9.610/98) e criminais (previstas no artigo 184 do Código Penal Brasileiro, com penas que podem chegar a
+            reclusão e multa).</p>
+
+        <h2>Desenvolvimento e Contato Legal</h2>
+        <p>Este projeto web (incluindo código-fonte, estruturação em HTML/CSS/JS e design de interface) foi idealizado,
+            projetado e desenvolvido por <strong>Kauã Lucas</strong>.</p>
+        <p>Caso tenha interesse em serviços de desenvolvimento web, ou precise de esclarecimentos sobre as políticas de
+            uso deste projeto e permissões de código, você pode conhecer mais sobre o meu trabalho e portfólio através
+            do meu perfil no GitHub: <a href="https://github.com/lkaua-dev" target="_blank"
+                class="link-padrao">github.com/lkaua-dev</a>.</p>
+        <p>Para contatos comerciais ou denúncias de uso indevido deste material, entre em contato através do e-mail:
+            <strong>kaualucass1122@gmail.com</strong>.
+        </p>
+        <p>Qualquer tentativa de plágio do código-fonte, engenharia reversa não autorizada ou cópia do layout será
+            monitorada e as medidas extrajudiciais e judiciais cabíveis serão tomadas imediatamente.</p>
+    </div>
+
+    <script>
+        // --- Lógica do Cursor Customizado para a página de direitos autorais ---
+        const cd = document.getElementById('cd');
+        const cr = document.getElementById('cr');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+
+        document.addEventListener('mousemove', e => {
+            mx = e.clientX;
+            my = e.clientY;
+            cd.style.left = mx + 'px';
+            cd.style.top = my + 'px';
+        });
+
+        (function animateCursor() {
+            rx += (mx - rx) * .13;
+            ry += (my - ry) * .13;
+            cr.style.left = rx + 'px';
+            cr.style.top = ry + 'px';
+            requestAnimationFrame(animateCursor);
+        })();
+
+        document.querySelectorAll('a, button').forEach(e => {
+            e.addEventListener('mouseenter', () => cr.classList.add('on'));
+            e.addEventListener('mouseleave', () => cr.classList.remove('on'));
+        });
+    </script>
+</body>
+
+</html>
