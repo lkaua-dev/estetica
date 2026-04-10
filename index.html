@@ -36,6 +36,7 @@
 
     html {
       scroll-padding-top: 60px;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -816,7 +817,12 @@
       position: relative;
       overflow: hidden;
       border-radius: 1rem;
-      cursor: none
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gi:hover {
+      transform: scale(1.02);
     }
 
     .gi:first-child {
@@ -837,35 +843,75 @@
     }
 
     .gov {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(12, 21, 35, .72), rgba(49, 72, 122, .52));
-      opacity: 0;
-      transition: opacity .4s;
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-
-    .gov i {
-      color: var(--wh);
-      font-size: 2.5rem;
-      opacity: 0;
-      transform: scale(.7);
-      transition: all .4s ease .08s
+      display: none;
     }
 
     .gi:hover img {
       transform: scale(1.07)
     }
 
-    .gi:hover .gov {
-      opacity: 1
+    /* Modal de Zoom */
+    #zoomModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 21, 35, 0.95);
+      z-index: 5000;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.3s ease;
     }
 
-    .gi:hover .gov i {
-      opacity: 1;
-      transform: scale(1)
+    #zoomModal.active {
+      display: flex;
+    }
+
+    #zoomModal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 1rem;
+      animation: zoomIn 0.4s ease;
+    }
+
+    .zoomClose {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: var(--wh);
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 5001;
+      transition: color 0.3s, transform 0.3s;
+      padding: 0.5rem;
+    }
+
+    .zoomClose:hover {
+      color: var(--ac);
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     #contato {
@@ -1184,6 +1230,16 @@
         text-align: center;
         gap: .5rem
       }
+
+      #zoomModal img {
+        max-width: 95vw;
+        max-height: 80vh;
+      }
+
+      .zoomClose {
+        top: 1rem;
+        right: 1rem;
+      }
     }
 
     /* ── MOBILE 480px ── */
@@ -1342,6 +1398,12 @@
 <body>
   <div id="cd"></div>
   <div id="cr"></div>
+
+  <!-- Modal de Zoom para Galeria -->
+  <div id="zoomModal">
+    <button class="zoomClose" aria-label="Fechar"><i class="ph ph-x"></i></button>
+    <img id="zoomImg" src="" alt="Imagem ampliada">
+  </div>
 
   <header id="nb">
     <div class="nl"><a href="#home"><img src="/img/logo1.svg" alt="MG"></a></div>
@@ -1623,6 +1685,39 @@
 
     document.querySelectorAll('.stn[data-t]').forEach(c => counterObserver.observe(c));
 
+    // --- Modal de Zoom para Galeria ---
+    const zoomModal = document.getElementById('zoomModal');
+    const zoomImg = document.getElementById('zoomImg');
+    const zoomClose = document.querySelector('.zoomClose');
+
+    document.querySelectorAll('.gi img').forEach(img => {
+      img.addEventListener('click', e => {
+        zoomImg.src = img.src;
+        zoomModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    zoomClose.addEventListener('click', () => {
+      zoomModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    zoomModal.addEventListener('click', e => {
+      if (e.target === zoomModal) {
+        zoomModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Fechar modal com tecla ESC
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && zoomModal.classList.contains('active')) {
+        zoomModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
     // --- Integração CMS (JSON) ---
     async function carregarDadosCMS() {
       try {
@@ -1647,7 +1742,14 @@
                 <i class="ph ph-magnifying-glass-plus"></i>
               </div>`;
             container.appendChild(div);
-            revealObserver.observe(div); // Garante que novos itens sejam observados
+            revealObserver.observe(div);
+
+            // Adicionar evento de zoom para novas imagens
+            div.querySelector('img').addEventListener('click', e => {
+              zoomImg.src = e.target.src;
+              zoomModal.classList.add('active');
+              document.body.style.overflow = 'hidden';
+            });
           });
         }
       } catch (e) {
