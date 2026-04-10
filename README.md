@@ -39,7 +39,7 @@ Isso elimina a necessidade de sistemas complexos e mantém o processo direto.
 
 ## 📁 Estrutura do Projeto
 ```bash
-/portfolio
+/estetica
 │── index.html
 │── /img
 │── imagens
