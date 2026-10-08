@@ -1,1620 +1,2065 @@
 <!doctype html>
 <html lang="pt-BR">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
     <title>Mikaely Yasmin Gomes | Estética Avançada &amp; Bem-estar</title>
-    <meta name="description"
-        content="Auriculoterapia, massagem e ventosaterapia com protocolos personalizados. Atendimento exclusivo para o público feminino." />
+    <meta
+      name="description"
+      content="Auriculoterapia, massagem e ventosaterapia com protocolos personalizados. Atendimento exclusivo para o público feminino."
+    />
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-        rel="stylesheet" />
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
-        :root {
-            --dk: #0c1523;
-            --nv: #192338;
-            --ac: #8fb3e2;
-            --ad: #31487a;
-            --g3: #d1d5db;
-            --g4: #9ca3af;
-            --g5: #6b7280;
-            --ln: rgba(255, 255, 255, 0.16);
-            --a1: rgba(143, 179, 226, 0.1);
-            --a2: rgba(143, 179, 226, 0.2);
-            --a5: rgba(143, 179, 226, 0.5);
-            --pad: clamp(1.1rem, 4vw, 3rem);
-        }
+      :root {
+        --dk: #0c1523;
+        --nv: #192338;
+        --ac: #8fb3e2;
+        --ad: #31487a;
+        --g3: #d1d5db;
+        --g4: #9ca3af;
+        --g5: #6b7280;
+        --ln: rgba(255, 255, 255, 0.16);
+        --a1: rgba(143, 179, 226, 0.1);
+        --a2: rgba(143, 179, 226, 0.2);
+        --a5: rgba(143, 179, 226, 0.5);
+        --max: 1280px;
+        --nav-h: 74px;
+        --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        --shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+        --pad: clamp(1.1rem, 4vw, 3rem);
+      }
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 76px;
-        }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--nav-h) + 18px);
+      }
 
-        body {
-            background: var(--dk);
-            color: var(--g3);
-            font:
-                300 1rem/1.75 "DM Sans",
-                sans-serif;
-            overflow-x: hidden;
-        }
+      body {
+        background: var(--dk);
+        color: var(--g3);
+        font:
+          300 1rem/1.75 "DM Sans",
+          sans-serif;
+        overflow-x: hidden;
+        min-width: 320px;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+      }
 
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: "Cormorant Garamond", serif;
-            line-height: 1.1;
-            font-weight: 400;
-            color: #fff;
-        }
+      html.menu-open,
+      html.menu-open body {
+        overflow: hidden;
+      }
 
-        a {
-            color: inherit;
-        }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cormorant Garamond", serif;
+        line-height: 1.1;
+        font-weight: 400;
+        color: #fff;
+      }
 
-        :focus-visible {
-            outline: 2px solid var(--ac);
-            outline-offset: 3px;
-        }
+      a {
+        color: inherit;
+      }
 
-        html.fine body,
-        html.fine a,
-        html.fine button {
-            cursor: none;
-        }
+      img {
+        max-width: 100%;
+      }
 
-        #pg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 2px;
-            width: 100%;
-            background: var(--ac);
-            transform: scaleX(0);
-            transform-origin: left;
-            z-index: 2000;
-        }
+      button,
+      input,
+      textarea,
+      select {
+        font: inherit;
+      }
 
-        #cd,
-        #cr {
-            position: fixed;
-            top: 0;
-            left: 0;
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            display: none;
-        }
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
 
-        .fine #cd,
-        .fine #cr {
-            display: block;
-        }
+      button {
+        touch-action: manipulation;
+      }
 
-        #cd {
-            width: 7px;
-            height: 7px;
-            background: var(--ac);
-            z-index: 9999;
-            mix-blend-mode: screen;
-        }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      a,
+      button {
+        overflow-wrap: break-word;
+      }
 
-        #cr {
-            width: 36px;
-            height: 36px;
-            border: 1px solid var(--a5);
-            z-index: 9998;
-            transition:
-                width 0.3s,
-                height 0.3s,
-                background 0.3s;
-        }
+      :focus-visible {
+        outline: 2px solid var(--ac);
+        outline-offset: 3px;
+      }
 
-        #cr.on {
-            width: 56px;
-            height: 56px;
-            background: var(--a1);
-        }
+      html.fine body,
+      html.fine a,
+      html.fine button {
+        cursor: none;
+      }
 
-        .lbl {
-            font-size: 0.8rem;
-            letter-spacing: 0.14em;
-            color: var(--ac);
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-        }
+      #pg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background: var(--ac);
+        transform: scaleX(0);
+        transform-origin: left;
+        z-index: 2000;
+      }
 
-        .lbl::before {
-            content: "";
-            width: 26px;
-            height: 1px;
-            background: var(--ac);
-        }
+      #cd,
+      #cr {
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        display: none;
+      }
 
-        .rv {
-            opacity: 0;
-            transform: translateY(28px);
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
-        }
+      .fine #cd,
+      .fine #cr {
+        display: block;
+      }
 
-        .rv.in {
-            opacity: 1;
-            transform: none;
-        }
+      #cd {
+        width: 7px;
+        height: 7px;
+        background: var(--ac);
+        z-index: 9999;
+        mix-blend-mode: screen;
+      }
 
-        .d1 {
-            transition-delay: 0.1s;
-        }
+      #cr {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--a5);
+        z-index: 9998;
+        transition:
+          width 0.3s,
+          height 0.3s,
+          background 0.3s;
+      }
 
-        .d2 {
-            transition-delay: 0.2s;
-        }
+      #cr.on {
+        width: 56px;
+        height: 56px;
+        background: var(--a1);
+      }
 
-        .d3 {
-            transition-delay: 0.3s;
-        }
+      .lbl {
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ac);
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
 
-        /* Navegação */
-        #nb {
-            position: fixed;
-            inset: 0 0 auto;
-            z-index: 1000;
-            height: 74px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 var(--pad);
-            backdrop-filter: blur(18px);
-            transition:
-                background 0.4s,
-                box-shadow 0.4s;
-        }
+      .lbl::before {
+        content: "";
+        width: 26px;
+        height: 1px;
+        background: var(--ac);
+      }
 
-        #nb.solid {
-            background: rgba(12, 21, 35, 0.94);
-            box-shadow: 0 1px 0 var(--a1);
-        }
+      .rv {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
 
-        .nl img {
-            height: 44px;
-            display: block;
-        }
+      .rv.in {
+        opacity: 1;
+        transform: none;
+      }
 
-        .nv {
-            display: flex;
-            gap: 2.2rem;
-        }
+      .d1 {
+        transition-delay: 0.1s;
+      }
 
-        .nv a {
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            position: relative;
-            padding: 0.2rem 0;
-            transition: color 0.3s;
-        }
+      .d2 {
+        transition-delay: 0.2s;
+      }
 
-        .nv a::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--ac);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s;
-        }
+      .d3 {
+        transition-delay: 0.3s;
+      }
 
-        .nv a:hover,
-        .nv a.act {
-            color: var(--ac);
-        }
+      /* Navegação */
+      #nb {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 1000;
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-inline: max(var(--pad), env(safe-area-inset-left))
+          max(var(--pad), env(safe-area-inset-right));
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        transition:
+          background 0.4s,
+          box-shadow 0.4s;
+      }
 
-        .nv a:hover::after,
-        .nv a.act::after {
-            transform: scaleX(1);
-        }
+      #nb.solid {
+        background: rgba(12, 21, 35, 0.94);
+        box-shadow: 0 1px 0 var(--a1);
+      }
 
-        .nc {
-            padding: 0.55rem 1.4rem;
-            border-radius: 50px;
-            border: 1px solid var(--ln);
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition:
-                background 0.3s,
-                border-color 0.3s;
-        }
+      .nl img {
+        height: clamp(38px, 5vw, 44px);
+        display: block;
+      }
 
-        .nc:hover {
-            background: var(--a1);
-            border-color: var(--a5);
-        }
+      .nv {
+        display: flex;
+        align-items: center;
+        gap: clamp(1rem, 2.2vw, 2.2rem);
+      }
 
-        #hb {
-            display: none;
-            background: none;
-            border: 0;
-            color: #fff;
-            font-size: 1.7rem;
-            width: 44px;
-            height: 44px;
-            align-items: center;
-            justify-content: center;
-        }
+      .nv a {
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 400;
+        position: relative;
+        padding: 0.2rem 0;
+        white-space: nowrap;
+        transition: color 0.3s;
+      }
 
-        #mn {
-            display: none;
-            position: fixed;
-            top: 74px;
-            inset-inline: 0;
-            background: rgba(12, 21, 35, 0.97);
-            backdrop-filter: blur(18px);
-            padding: 1rem 1.25rem 1.5rem;
-            flex-direction: column;
-            gap: 0.3rem;
-            border-bottom: 1px solid var(--a1);
-            z-index: 999;
-        }
+      .nv a::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: var(--ac);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s;
+      }
 
-        #mn.open {
-            display: flex;
-        }
+      .nv a:hover,
+      .nv a.act {
+        color: var(--ac);
+      }
 
-        #mn a {
-            text-decoration: none;
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
-        }
+      .nv a:hover::after,
+      .nv a.act::after {
+        transform: scaleX(1);
+      }
 
-        #mn a:hover,
-        #mn a.act {
-            background: var(--a1);
-            color: var(--ac);
-        }
+      .nc {
+        padding: 0.55rem 1.4rem;
+        border-radius: 50px;
+        border: 1px solid var(--ln);
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        white-space: nowrap;
+        transition:
+          background 0.3s,
+          border-color 0.3s;
+      }
 
-        #mn .mc {
-            background: var(--ac);
-            color: var(--dk);
-            font-weight: 500;
-            text-align: center;
-            border-radius: 50px;
-            margin-top: 0.4rem;
-        }
+      .nc:hover {
+        background: var(--a1);
+        border-color: var(--a5);
+      }
 
-        /* Botões */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            border: 1px solid var(--ln);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition:
-                background 0.3s,
-                box-shadow 0.3s,
-                border-color 0.3s;
-            will-change: transform;
-        }
+      #hb {
+        display: none;
+        background: none;
+        border: 0;
+        color: #fff;
+        font-size: 1.7rem;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
 
-        .btn.wa {
-            background: #25d366;
-            box-shadow: 0 0 28px rgba(37, 211, 102, 0.25);
-        }
+      #hb:hover,
+      #hb:focus-visible {
+        background: var(--a1);
+        color: var(--ac);
+      }
 
-        .btn.wa:hover {
-            background: #1ebe5a;
-            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
-        }
+      #mn {
+        display: flex;
+        position: fixed;
+        top: var(--nav-h);
+        inset-inline: 0;
+        background: rgba(12, 21, 35, 0.97);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        padding: 1rem 1.25rem 1.5rem;
+        flex-direction: column;
+        gap: 0.3rem;
+        border-bottom: 1px solid var(--a1);
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+        max-height: calc(100svh - var(--nav-h));
+        overflow-y: auto;
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition:
+          opacity 0.28s var(--ease),
+          transform 0.28s var(--ease),
+          visibility 0.28s var(--ease);
+      }
 
-        .btn.ol {
-            font-weight: 300;
-        }
+      #mn.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
 
-        .btn.ol:hover {
-            background: var(--a1);
-            border-color: var(--a5);
-        }
+      #mn a {
+        text-decoration: none;
+        padding: 0.8rem 1rem;
+        border-radius: 10px;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+      }
 
-        .btn.ig {
-            background: linear-gradient(45deg, #f09433, #dc2743 55%, #bc1888);
-            border: 0;
-            font-weight: 600;
-        }
+      #mn a:hover,
+      #mn a.act {
+        background: var(--a1);
+        color: var(--ac);
+      }
 
-        /* Hero */
-        #home {
-            min-height: 100svh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
+      #mn .mc {
+        background: var(--ac);
+        color: var(--dk);
+        font-weight: 500;
+        text-align: center;
+        border-radius: 50px;
+        margin-top: 0.4rem;
+      }
 
-        .hbg {
-            position: absolute;
-            inset: 0;
-            background: url("/img/3.jpeg") center 30% / cover;
-            transform: scale(1.1);
-            will-change: transform;
-        }
+      /* Botões */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        min-height: 50px;
+        max-width: 100%;
+        border-radius: 50px;
+        border: 1px solid var(--ln);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        line-height: 1.25;
+        text-align: center;
+        transition:
+          background 0.3s,
+          box-shadow 0.3s,
+          border-color 0.3s,
+          transform 0.3s var(--ease);
+        will-change: transform;
+      }
 
-        .hov {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg,
-                    rgba(12, 21, 35, 0.93),
-                    rgba(12, 21, 35, 0.78) 45%,
-                    rgba(25, 35, 56, 0.58));
-        }
+      .btn.wa {
+        background: #25d366;
+        box-shadow: 0 0 28px rgba(37, 211, 102, 0.25);
+      }
 
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            animation: flt 11s ease-in-out infinite;
-        }
+      .btn.wa:hover {
+        background: #1ebe5a;
+        box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+      }
 
-        .o1 {
-            width: 520px;
-            height: 520px;
-            top: -120px;
-            right: -80px;
-            background: radial-gradient(circle,
-                    rgba(143, 179, 226, 0.08),
-                    transparent 70%);
-        }
+      .btn.ol {
+        font-weight: 300;
+      }
 
-        .o2 {
-            width: 280px;
-            height: 280px;
-            bottom: 80px;
-            right: 22%;
-            background: radial-gradient(circle,
-                    rgba(49, 72, 122, 0.18),
-                    transparent 70%);
-            animation-direction: reverse;
-        }
+      .btn.ol:hover {
+        background: var(--a1);
+        border-color: var(--a5);
+      }
 
-        @keyframes flt {
-            50% {
-                transform: translate(16px, -26px);
-            }
-        }
+      .btn.ig {
+        background: linear-gradient(45deg, #f09433, #dc2743 55%, #bc1888);
+        border: 0;
+        font-weight: 600;
+      }
 
-        .hwm {
-            position: absolute;
-            right: 4%;
-            top: 50%;
-            width: min(40%, 500px);
-            filter: invert(1) brightness(2);
-            opacity: 0.1;
-            transform: translateY(-50%);
-            pointer-events: none;
-        }
+      /* Hero */
+      #home {
+        min-height: 100svh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        isolation: isolate;
+      }
 
-        .hcnt {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 96px var(--pad) 3rem;
-        }
+      .hbg {
+        position: absolute;
+        inset: 0;
+        background: url("/img/3.jpeg") center 30% / cover;
+        transform: scale(1.1);
+        will-change: transform;
+      }
 
+      .hov {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(12, 21, 35, 0.93),
+          rgba(12, 21, 35, 0.78) 45%,
+          rgba(25, 35, 56, 0.58)
+        );
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: flt 11s ease-in-out infinite;
+      }
+
+      .o1 {
+        width: 520px;
+        height: 520px;
+        top: -120px;
+        right: -80px;
+        background: radial-gradient(
+          circle,
+          rgba(143, 179, 226, 0.08),
+          transparent 70%
+        );
+      }
+
+      .o2 {
+        width: 280px;
+        height: 280px;
+        bottom: 80px;
+        right: 22%;
+        background: radial-gradient(
+          circle,
+          rgba(49, 72, 122, 0.18),
+          transparent 70%
+        );
+        animation-direction: reverse;
+      }
+
+      @keyframes flt {
+        50% {
+          transform: translate(16px, -26px);
+        }
+      }
+
+      .hwm {
+        position: absolute;
+        right: 4%;
+        top: 50%;
+        width: min(40%, 500px);
+        filter: invert(1) brightness(2);
+        opacity: 0.1;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .hcnt {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: max(96px, calc(var(--nav-h) + 2rem)) var(--pad)
+          clamp(3.5rem, 8vw, 5rem);
+      }
+
+      .hh1 {
+        font-size: 5.9rem;
+        font-weight: 300;
+        line-height: 1.04;
+        max-width: 700px;
+        margin: 1.2rem 0 1.4rem;
+        text-wrap: balance;
+      }
+
+      .hh1 em {
+        color: var(--ac);
+      }
+
+      .hsb {
+        font-size: 1.08rem;
+        max-width: 460px;
+        margin-bottom: 2.2rem;
+        line-height: 1.85;
+        color: rgba(209, 213, 219, 0.92);
+      }
+
+      .hbt {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .hcnt > * {
+        animation: su 0.9s ease backwards;
+      }
+
+      .hcnt > :nth-child(2) {
+        animation-delay: 0.15s;
+      }
+
+      .hcnt > :nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .hcnt > :nth-child(4) {
+        animation-delay: 0.45s;
+      }
+
+      @keyframes su {
+        from {
+          opacity: 0;
+          transform: translateY(26px);
+        }
+      }
+
+      /* Seções */
+      .sec {
+        padding: clamp(4rem, 9vw, 7rem) var(--pad);
+        scroll-margin-top: calc(var(--nav-h) + 18px);
+      }
+
+      .con {
+        width: 100%;
+        max-width: var(--max);
+        margin: 0 auto;
+      }
+
+      .sec h2 {
+        font-size: 3.35rem;
+        margin-top: 0.6rem;
+        text-wrap: balance;
+      }
+
+      .sec h2 em,
+      .ctc h3 em {
+        color: var(--ac);
+      }
+
+      /* Sobre */
+      .abg {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: clamp(2.5rem, 6vw, 5rem);
+        align-items: center;
+      }
+
+      .abw {
+        position: relative;
+        margin: 16px;
+        min-width: 0;
+      }
+
+      .abr {
+        position: absolute;
+        inset: -16px;
+        border: 1px solid var(--a2);
+        border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+        animation: mrph 10s ease-in-out infinite;
+      }
+
+      @keyframes mrph {
+        50% {
+          border-radius: 58% 42% 75% 25%/76% 46% 54% 24%;
+        }
+      }
+
+      .abi {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: clamp(320px, 48vw, 580px);
+        object-fit: cover;
+        object-position: top;
+        border-radius: 1.75rem;
+        box-shadow: var(--shadow);
+      }
+
+      .abt p {
+        color: var(--g4);
+        margin-top: 1rem;
+        line-height: 1.9;
+        max-width: 56ch;
+      }
+
+      .abt {
+        min-width: 0;
+      }
+
+      .abt h2 {
+        margin-bottom: 1.2rem;
+      }
+
+      .sts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+        gap: 1rem;
+        margin-top: 2.2rem;
+      }
+
+      .st {
+        padding: 1.1rem;
+        border-left: 2px solid var(--ac);
+        background: var(--a1);
+        border-radius: 0 0.75rem 0.75rem 0;
+        min-width: 0;
+      }
+
+      .stn {
+        font:
+          300 2.5rem/1 "Cormorant Garamond",
+          serif;
+        color: #fff;
+      }
+
+      .stl {
+        font-size: 0.78rem;
+        color: var(--g4);
+      }
+
+      /* Serviços */
+      #servicos {
+        background: linear-gradient(180deg, var(--dk), #0e1928 50%, var(--dk));
+      }
+
+      .svh {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+
+      .svh p {
+        color: var(--g4);
+        max-width: 380px;
+      }
+
+      .svg {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+        gap: 1.4rem;
+        align-items: stretch;
+      }
+
+      .svc {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--ln);
+        border-radius: 1.5rem;
+        padding: 2.2rem 1.9rem;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.015);
+        transition:
+          transform 0.4s var(--ease),
+          box-shadow 0.4s,
+          border-color 0.4s,
+          background 0.4s;
+      }
+
+      .svc::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.4s;
+        background: radial-gradient(
+          360px circle at var(--mx, 50%) var(--my, 0),
+          rgba(143, 179, 226, 0.16),
+          transparent 65%
+        );
+      }
+
+      .svc:hover,
+      .svc:focus-within {
+        transform: translateY(-8px);
+        border-color: var(--a5);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+        background: rgba(143, 179, 226, 0.04);
+      }
+
+      .svc:hover::after,
+      .svc:focus-within::after {
+        opacity: 1;
+      }
+
+      .svi {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--a1);
+        color: var(--ac);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 1.3rem;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+
+      .svc:hover .svi,
+      .svc:focus-within .svi {
+        background: var(--ac);
+        color: var(--dk);
+      }
+
+      .svc h4 {
+        font-size: 1.5rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .svc p {
+        font-size: 0.92rem;
+        line-height: 1.8;
+        margin-bottom: 1.4rem;
+        flex: 1;
+      }
+
+      .sva {
+        color: var(--ac);
+        font-size: 0.86rem;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        width: fit-content;
+        transition:
+          gap 0.3s,
+          color 0.3s;
+      }
+
+      .sva:hover {
+        gap: 0.8rem;
+      }
+
+      /* Quiz */
+      #ritual .con {
+        max-width: 880px;
+      }
+
+      .qz {
+        margin-top: 2.2rem;
+        border: 1px solid var(--ln);
+        border-radius: 2rem;
+        padding: clamp(1.5rem, 5vw, 3rem);
+        background: linear-gradient(160deg, var(--a1), transparent 60%);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.16);
+      }
+
+      .qbar {
+        display: flex;
+        gap: 0.4rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .qbar i {
+        flex: 1;
+        height: 3px;
+        border-radius: 3px;
+        background: var(--a2);
+        transition: background 0.4s;
+      }
+
+      .qbar i.on {
+        background: var(--ac);
+      }
+
+      .qq {
+        font: 400 2rem/1.2 "Cormorant Garamond", serif;
+        color: #fff;
+        margin-bottom: 1.4rem;
+      }
+
+      .qo {
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      .qo button {
+        text-align: left;
+        font: inherit;
+        color: var(--g3);
+        background: transparent;
+        border: 1px solid var(--ln);
+        border-radius: 1rem;
+        padding: 1rem 1.2rem;
+        min-height: 52px;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          border-color 0.3s,
+          color 0.3s,
+          transform 0.3s var(--ease);
+      }
+
+      .qo button:hover,
+      .qo button:focus-visible {
+        background: var(--a1);
+        border-color: var(--a5);
+        color: #fff;
+        transform: translateX(6px);
+      }
+
+      .qs {
+        animation: su 0.5s ease;
+      }
+
+      .qr h3 {
+        font-size: 2.8rem;
+        margin: 0.4rem 0 0.8rem;
+      }
+
+      .qr p {
+        max-width: 52ch;
+        margin-bottom: 1.5rem;
+      }
+
+      .qr small {
+        display: block;
+        margin-top: 1.2rem;
+        color: var(--g5);
+        font-size: 0.8rem;
+      }
+
+      .qrs {
+        background: none;
+        border: 0;
+        color: var(--ac);
+        font: inherit;
+        font-size: 0.86rem;
+        margin-left: 1rem;
+        text-decoration: underline;
+        cursor: pointer;
+        min-height: 44px;
+      }
+
+      /* Galeria */
+      .glh {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .glh .lbl {
+        justify-content: center;
+      }
+
+      .glg {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.9rem;
+      }
+
+      .gi {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+        height: 270px;
+        cursor: zoom-in;
+        background: var(--nv);
+        outline: 0;
+      }
+
+      .gi:first-child {
+        grid-row: span 2;
+        height: 560px;
+      }
+
+      .gi img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition:
+          transform 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+          filter 0.4s;
+      }
+
+      .gi::after {
+        content: "\e3d4";
+        font-family: "Phosphor";
+        position: absolute;
+        right: 0.9rem;
+        bottom: 0.9rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(12, 21, 35, 0.7);
+        backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        opacity: 0;
+        transform: scale(0.8);
+        transition:
+          opacity 0.3s,
+          transform 0.3s;
+      }
+
+      .gi:hover img {
+        transform: scale(1.06);
+      }
+
+      .gi:hover::after,
+      .gi:focus-visible::after {
+        opacity: 1;
+        transform: none;
+      }
+
+      .gi:focus-visible {
+        box-shadow: 0 0 0 3px var(--ac);
+      }
+
+      .gov {
+        display: none;
+      }
+
+      #zoomModal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(12, 21, 35, 0.95);
+        z-index: 5000;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      #zoomModal.active {
+        display: flex;
+        animation: fi 0.3s;
+      }
+
+      #zoomModal img {
+        max-width: 92vw;
+        max-height: 88vh;
+        border-radius: 1rem;
+        box-shadow: var(--shadow);
+      }
+
+      @keyframes fi {
+        from {
+          opacity: 0;
+        }
+      }
+
+      .zoomClose {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--ln);
+        color: #fff;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+
+      .zoomClose:hover,
+      .zoomClose:focus-visible {
+        background: var(--a1);
+        color: var(--ac);
+      }
+
+      /* Contato */
+      #contato {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ctc {
+        position: relative;
+        max-width: 740px;
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid var(--ln);
+        border-radius: 2rem;
+        padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem);
+        background: linear-gradient(160deg, rgba(143, 179, 226, 0.06), transparent 65%);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+      }
+
+      .ctc .lbl {
+        justify-content: center;
+      }
+
+      .ctc h3 {
+        font-size: 3.1rem;
+        margin: 0.9rem 0 1rem;
+        text-wrap: balance;
+      }
+
+      .ctc > p {
+        max-width: 460px;
+        margin: 0 auto 2rem;
+      }
+
+      .aviso {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        background: rgba(220, 39, 67, 0.1);
+        border: 1px solid rgba(220, 39, 67, 0.4);
+        color: #ff8fa3;
+        padding: 0.8rem 1.4rem;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        max-width: 100%;
+      }
+
+      .ctb {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .shr {
+        margin-top: 1.4rem;
+        background: none;
+        border: 0;
+        color: var(--g4);
+        font: inherit;
+        font-size: 0.88rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        min-height: 44px;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .shr:hover {
+        color: var(--ac);
+      }
+
+      footer {
+        border-top: 1px solid rgba(143, 179, 226, 0.08);
+        padding: 2.5rem var(--pad);
+      }
+
+      .fti {
+        max-width: var(--max);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .ftb {
+        font:
+          400 1.2rem "Cormorant Garamond",
+          serif;
+        color: var(--ac);
+        letter-spacing: 0.12em;
+      }
+
+      .ftc {
+        color: var(--g5);
+        font-size: 0.8rem;
+      }
+
+      .ftc a,
+      .fti > span a {
+        color: var(--ac);
+        text-decoration: none;
+      }
+
+      .dev-info {
+        color: var(--g5);
+        font-size: 0.85rem;
+      }
+
+      .dev-info a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        color: var(--g4);
+      }
+
+      .dev-info a:hover {
+        color: #fff;
+      }
+
+      /* WhatsApp flutuante */
+      #fab {
+        position: fixed;
+        right: max(1.1rem, env(safe-area-inset-right));
+        bottom: max(1.1rem, env(safe-area-inset-bottom));
+        z-index: 900;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #25d366;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        text-decoration: none;
+        box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+        pointer-events: none;
+        transition:
+          opacity 0.4s,
+          transform 0.4s;
+      }
+
+      #fab.show {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .btn:hover {
+          transform: translateY(-2px);
+        }
+      }
+
+      /* Responsivo */
+      @media (max-width: 1180px) {
         .hh1 {
-            font-size: clamp(2.6rem, 7vw, 6.2rem);
-            font-weight: 300;
-            line-height: 1.04;
-            max-width: 700px;
-            margin: 1.2rem 0 1.4rem;
-        }
-
-        .hh1 em {
-            color: var(--ac);
-        }
-
-        .hsb {
-            font-size: 1.08rem;
-            max-width: 460px;
-            margin-bottom: 2.2rem;
-            line-height: 1.85;
-        }
-
-        .hbt {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hcnt>* {
-            animation: su 0.9s ease backwards;
-        }
-
-        .hcnt> :nth-child(2) {
-            animation-delay: 0.15s;
-        }
-
-        .hcnt> :nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .hcnt> :nth-child(4) {
-            animation-delay: 0.45s;
-        }
-
-        @keyframes su {
-            from {
-                opacity: 0;
-                transform: translateY(26px);
-            }
-        }
-
-        /* Seções */
-        .sec {
-            padding: clamp(4rem, 9vw, 7rem) var(--pad);
-        }
-
-        .con {
-            max-width: 1280px;
-            margin: 0 auto;
+          font-size: 5rem;
         }
 
         .sec h2 {
-            font-size: clamp(2.1rem, 4vw, 3.5rem);
-            margin-top: 0.6rem;
+          font-size: 3rem;
         }
 
-        .sec h2 em,
-        .ctc h3 em {
-            color: var(--ac);
+        .nc {
+          padding-inline: 1.1rem;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .nv,
+        .nc {
+          display: none;
         }
 
-        /* Sobre */
+        #hb {
+          display: flex;
+        }
+
         .abg {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(2.5rem, 6vw, 5rem);
-            align-items: center;
+          grid-template-columns: 1fr;
+          gap: 3rem;
         }
 
-        .abw {
-            position: relative;
-            margin: 16px;
+        .hwm {
+          display: none;
         }
 
-        .abr {
-            position: absolute;
-            inset: -16px;
-            border: 1px solid var(--a2);
-            border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
-            animation: mrph 10s ease-in-out infinite;
+        .hcnt {
+          padding-top: calc(var(--nav-h) + 4rem);
         }
 
-        @keyframes mrph {
-            50% {
-                border-radius: 58% 42% 75% 25%/76% 46% 54% 24%;
-            }
+        .hh1 {
+          font-size: 4rem;
+          max-width: 650px;
         }
 
-        .abi {
-            position: relative;
-            z-index: 1;
-            display: block;
-            width: 100%;
-            height: clamp(320px, 48vw, 580px);
-            object-fit: cover;
-            object-position: top;
-            border-radius: 1.75rem;
-        }
-
-        .abt p {
-            color: var(--g4);
-            margin-top: 1rem;
-            line-height: 1.9;
-            max-width: 56ch;
-        }
-
-        .abt h2 {
-            margin-bottom: 1.2rem;
-        }
-
-        .sts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 2.2rem;
-        }
-
-        .st {
-            padding: 1.1rem;
-            border-left: 2px solid var(--ac);
-            background: var(--a1);
-            border-radius: 0 0.75rem 0.75rem 0;
-        }
-
-        .stn {
-            font:
-                300 2.5rem/1 "Cormorant Garamond",
-                serif;
-            color: #fff;
-        }
-
-        .stl {
-            font-size: 0.78rem;
-            color: var(--g4);
-        }
-
-        /* Serviços */
-        #servicos {
-            background: linear-gradient(180deg, var(--dk), #0e1928 50%, var(--dk));
+        .hsb {
+          max-width: 540px;
         }
 
         .svh {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .svh p {
-            color: var(--g4);
-            max-width: 380px;
-        }
-
-        .svg {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 1.4rem;
-        }
-
-        .svc {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--ln);
-            border-radius: 1.5rem;
-            padding: 2.2rem 1.9rem;
-            display: flex;
-            flex-direction: column;
-            transition:
-                transform 0.4s,
-                box-shadow 0.4s,
-                border-color 0.4s;
-        }
-
-        .svc::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.4s;
-            background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0),
-                    rgba(143, 179, 226, 0.16),
-                    transparent 65%);
-        }
-
-        .svc:hover {
-            transform: translateY(-8px);
-            border-color: var(--a5);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-        }
-
-        .svc:hover::after {
-            opacity: 1;
-        }
-
-        .svi {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: var(--a1);
-            color: var(--ac);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 1.3rem;
-            transition:
-                background 0.3s,
-                color 0.3s;
-        }
-
-        .svc:hover .svi {
-            background: var(--ac);
-            color: var(--dk);
-        }
-
-        .svc h4 {
-            font-size: 1.5rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .svc p {
-            font-size: 0.92rem;
-            line-height: 1.8;
-            margin-bottom: 1.4rem;
-            flex: 1;
-        }
-
-        .sva {
-            color: var(--ac);
-            font-size: 0.86rem;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            transition: gap 0.3s;
-        }
-
-        .sva:hover {
-            gap: 0.8rem;
-        }
-
-        /* Quiz */
-        #ritual .con {
-            max-width: 880px;
-        }
-
-        .qz {
-            margin-top: 2.2rem;
-            border: 1px solid var(--ln);
-            border-radius: 2rem;
-            padding: clamp(1.5rem, 5vw, 3rem);
-            background: linear-gradient(160deg, var(--a1), transparent 60%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .qbar {
-            display: flex;
-            gap: 0.4rem;
-            margin-bottom: 1.6rem;
-        }
-
-        .qbar i {
-            flex: 1;
-            height: 3px;
-            border-radius: 3px;
-            background: var(--a2);
-            transition: background 0.4s;
-        }
-
-        .qbar i.on {
-            background: var(--ac);
-        }
-
-        .qq {
-            font:
-                400 clamp(1.5rem, 3.4vw, 2.1rem)/1.2 "Cormorant Garamond",
-                serif;
-            color: #fff;
-            margin-bottom: 1.4rem;
-        }
-
-        .qo {
-            display: grid;
-            gap: 0.7rem;
-        }
-
-        .qo button {
-            text-align: left;
-            font: inherit;
-            color: var(--g3);
-            background: transparent;
-            border: 1px solid var(--ln);
-            border-radius: 1rem;
-            padding: 1rem 1.2rem;
-            transition:
-                background 0.3s,
-                border-color 0.3s,
-                transform 0.3s;
-        }
-
-        .qo button:hover {
-            background: var(--a1);
-            border-color: var(--a5);
-            transform: translateX(6px);
-        }
-
-        .qs {
-            animation: su 0.5s ease;
-        }
-
-        .qr h3 {
-            font-size: clamp(2rem, 4.5vw, 3rem);
-            margin: 0.4rem 0 0.8rem;
-        }
-
-        .qr p {
-            max-width: 52ch;
-            margin-bottom: 1.5rem;
-        }
-
-        .qr small {
-            display: block;
-            margin-top: 1.2rem;
-            color: var(--g5);
-            font-size: 0.8rem;
-        }
-
-        .qrs {
-            background: none;
-            border: 0;
-            color: var(--ac);
-            font: inherit;
-            font-size: 0.86rem;
-            margin-left: 1rem;
-            text-decoration: underline;
-        }
-
-        /* Galeria */
-        .glh {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .glh .lbl {
-            justify-content: center;
+          align-items: flex-start;
+          margin-bottom: 2.4rem;
         }
 
         .glg {
-            display: grid;
-            grid-template-columns: 1.55fr 1fr 1fr;
-            gap: 0.9rem;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.7rem;
         }
 
-        .gi {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
-            height: 270px;
-            cursor: zoom-in;
+        .gi,
+        .gi:not(:first-child) {
+          height: 170px;
         }
 
         .gi:first-child {
-            grid-row: span 2;
-            height: 560px;
-        }
-
-        .gi img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition:
-                transform 0.65s cubic-bezier(0.4, 0, 0.2, 1),
-                filter 0.4s;
-        }
-
-        .gi::after {
-            content: "\e3d4";
-            font-family: "Phosphor";
-            position: absolute;
-            right: 0.9rem;
-            bottom: 0.9rem;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(12, 21, 35, 0.7);
-            backdrop-filter: blur(6px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            opacity: 0;
-            transform: scale(0.8);
-            transition:
-                opacity 0.3s,
-                transform 0.3s;
-        }
-
-        .gi:hover img {
-            transform: scale(1.06);
-        }
-
-        .gi:hover::after {
-            opacity: 1;
-            transform: none;
-        }
-
-        .gov {
-            display: none;
-        }
-
-        #zoomModal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(12, 21, 35, 0.95);
-            z-index: 5000;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        #zoomModal.active {
-            display: flex;
-            animation: fi 0.3s;
-        }
-
-        #zoomModal img {
-            max-width: 92vw;
-            max-height: 88vh;
-            border-radius: 1rem;
-        }
-
-        @keyframes fi {
-            from {
-                opacity: 0;
-            }
-        }
-
-        .zoomClose {
-            position: absolute;
-            top: 1.2rem;
-            right: 1.2rem;
-            background: none;
-            border: 0;
-            color: #fff;
-            font-size: 2rem;
-            padding: 0.5rem;
-        }
-
-        /* Contato */
-        #contato {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ctc {
-            position: relative;
-            max-width: 740px;
-            margin: 0 auto;
-            text-align: center;
-            border: 1px solid var(--ln);
-            border-radius: 2rem;
-            padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem);
-        }
-
-        .ctc .lbl {
-            justify-content: center;
-        }
-
-        .ctc h3 {
-            font-size: clamp(1.9rem, 4vw, 3.3rem);
-            margin: 0.9rem 0 1rem;
-        }
-
-        .ctc>p {
-            max-width: 460px;
-            margin: 0 auto 2rem;
-        }
-
-        .aviso {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: rgba(220, 39, 67, 0.1);
-            border: 1px solid rgba(220, 39, 67, 0.4);
-            color: #ff8fa3;
-            padding: 0.8rem 1.4rem;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-        }
-
-        .ctb {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .shr {
-            margin-top: 1.4rem;
-            background: none;
-            border: 0;
-            color: var(--g4);
-            font: inherit;
-            font-size: 0.88rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .shr:hover {
-            color: var(--ac);
-        }
-
-        footer {
-            border-top: 1px solid rgba(143, 179, 226, 0.08);
-            padding: 2.5rem var(--pad);
+          grid-column: span 2;
+          grid-row: auto;
+          height: 240px;
         }
 
         .fti {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+          justify-content: center;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .sec h2 {
+          font-size: 2.55rem;
         }
 
-        .ftb {
-            font:
-                400 1.2rem "Cormorant Garamond",
-                serif;
-            color: var(--ac);
-            letter-spacing: 0.12em;
+        .qq {
+          font-size: 1.75rem;
         }
 
-        .ftc {
-            color: var(--g5);
-            font-size: 0.8rem;
+        .qr h3 {
+          font-size: 2.3rem;
         }
 
-        .ftc a,
-        .fti>span a {
-            color: var(--ac);
-            text-decoration: none;
+        .ctc h3 {
+          font-size: 2.45rem;
+        }
+      }
+
+      @media (max-width: 560px) {
+        :root {
+          --nav-h: 68px;
+          --pad: clamp(1rem, 5vw, 1.35rem);
         }
 
-        .dev-info {
-            color: var(--g5);
-            font-size: 0.85rem;
+        #nb {
+          height: var(--nav-h);
         }
 
-        .dev-info a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            color: var(--g4);
+        #mn {
+          top: var(--nav-h);
+          padding-inline: var(--pad);
         }
 
-        .dev-info a:hover {
-            color: #fff;
+        .hbt .btn,
+        .ctb .btn {
+          width: 100%;
         }
 
-        /* WhatsApp flutuante */
+        .hcnt {
+          padding-top: calc(var(--nav-h) + 3.4rem);
+          padding-bottom: 3.4rem;
+        }
+
+        .hh1 {
+          font-size: 3.05rem;
+          margin: 1rem 0 1.2rem;
+        }
+
+        .hsb {
+          font-size: 1rem;
+          line-height: 1.72;
+          margin-bottom: 1.8rem;
+        }
+
+        .hbt {
+          gap: 0.75rem;
+        }
+
+        .sec {
+          padding-block: 3.8rem;
+        }
+
+        .sec h2 {
+          font-size: 2.25rem;
+        }
+
+        .lbl {
+          font-size: 0.74rem;
+          gap: 0.55rem;
+        }
+
+        .lbl::before {
+          width: 20px;
+        }
+
+        .abw {
+          margin: 10px;
+        }
+
+        .abr {
+          inset: -10px;
+        }
+
+        .abi {
+          height: min(112vw, 520px);
+          border-radius: 1.35rem;
+        }
+
+        .st {
+          padding: 1rem;
+        }
+
+        .stn {
+          font-size: 2.15rem;
+        }
+
+        .svc {
+          padding: 1.7rem 1.35rem;
+          border-radius: 1.25rem;
+        }
+
+        .qz {
+          border-radius: 1.35rem;
+          padding: 1.35rem;
+        }
+
+        .qq {
+          font-size: 1.52rem;
+        }
+
+        .qo button {
+          padding: 0.9rem 1rem;
+        }
+
+        .qr .btn,
+        .qr .qrs {
+          width: 100%;
+          margin: 0.8rem 0 0;
+        }
+
+        .glg {
+          grid-template-columns: 1fr;
+        }
+
+        .gi:first-child,
+        .gi:not(:first-child) {
+          grid-column: auto;
+          height: 240px;
+        }
+
+        .svh p {
+          display: none;
+        }
+
+        .ctc {
+          border-radius: 1.45rem;
+        }
+
+        .ctc h3 {
+          font-size: 2.1rem;
+        }
+
+        .aviso {
+          align-items: flex-start;
+          text-align: left;
+          padding: 0.85rem 1rem;
+        }
+
         #fab {
-            position: fixed;
-            right: max(1.1rem, env(safe-area-inset-right));
-            bottom: max(1.1rem, env(safe-area-inset-bottom));
-            z-index: 900;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #25d366;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            text-decoration: none;
-            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
-            opacity: 0;
-            transform: translateY(20px) scale(0.8);
-            pointer-events: none;
-            transition:
-                opacity 0.4s,
-                transform 0.4s;
+          width: 52px;
+          height: 52px;
+          font-size: 1.6rem;
         }
 
-        #fab.show {
-            opacity: 1;
-            transform: none;
-            pointer-events: auto;
+        .qo button:hover,
+        .qo button:focus-visible {
+          transform: none;
+        }
+      }
+
+      @media (hover: none), (pointer: coarse) {
+        .svc:hover,
+        .svc:focus-within,
+        .btn:hover {
+          transform: none;
         }
 
-        /* Responsivo */
-        @media (max-width: 900px) {
+        .gi:hover img {
+          transform: none;
+        }
+      }
 
-            .nv,
-            .nc {
-                display: none;
-            }
-
-            #hb {
-                display: flex;
-            }
-
-            .abg {
-                grid-template-columns: 1fr;
-            }
-
-            .hwm {
-                display: none;
-            }
-
-            .glg {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.7rem;
-            }
-
-            .gi,
-            .gi:not(:first-child) {
-                height: 170px;
-            }
-
-            .gi:first-child {
-                grid-column: span 2;
-                grid-row: auto;
-                height: 240px;
-            }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
         }
 
-        @media (max-width: 560px) {
-
-            #nb,
-            #mn {
-                --h: 68px;
-            }
-
-            #nb {
-                height: 68px;
-            }
-
-            #mn {
-                top: 68px;
-            }
-
-            .hbt .btn,
-            .ctb .btn {
-                width: 100%;
-            }
-
-            .glg {
-                grid-template-columns: 1fr;
-            }
-
-            .gi:first-child,
-            .gi:not(:first-child) {
-                grid-column: auto;
-                height: 240px;
-            }
-
-            .svh p {
-                display: none;
-            }
-
-            .qo button:hover {
-                transform: none;
-            }
+        .rv {
+          opacity: 1;
+          transform: none;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation: none !important;
-                transition: none !important;
-            }
-
-            .rv {
-                opacity: 1;
-                transform: none;
-            }
-
-            html {
-                scroll-behavior: auto;
-            }
+        html {
+          scroll-behavior: auto;
         }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="pg"></div>
     <div id="cd"></div>
     <div id="cr"></div>
-    <div id="zoomModal">
-        <button class="zoomClose" aria-label="Fechar">
-            <i class="ph ph-x"></i></button><img id="zoomImg" src="" alt="Imagem ampliada" />
+    <div id="zoomModal" role="dialog" aria-modal="true" aria-hidden="true">
+      <button class="zoomClose" type="button" aria-label="Fechar imagem ampliada">
+        <i class="ph ph-x"></i></button
+      ><img id="zoomImg" src="" alt="Imagem ampliada" />
     </div>
 
     <header id="nb">
-        <div class="nl">
-            <a href="#home"><img src="/img/logo1.svg" alt="MG" /></a>
-        </div>
-        <nav class="nv" aria-label="Principal">
-            <a href="#home">Início</a><a href="#sobre">Sobre Mim</a><a href="#servicos">Tratamentos</a><a
-                href="#ritual">Meu Tratamento</a><a href="#portfolio">Práticas</a>
-        </nav>
-        <a href="#contato" class="nc">Agendar Avaliação</a>
-        <button id="hb" aria-label="Abrir menu" aria-expanded="false">
-            <i class="ph ph-list"></i>
-        </button>
+      <div class="nl">
+        <a href="#home"><img src="/img/logo1.svg" alt="MG" /></a>
+      </div>
+      <nav class="nv" aria-label="Principal">
+        <a href="#home">Início</a><a href="#sobre">Sobre Mim</a
+        ><a href="#servicos">Tratamentos</a><a href="#ritual">Meu Tratamento</a
+        ><a href="#portfolio">Práticas</a>
+      </nav>
+      <a href="#contato" class="nc">Agendar Avaliação</a>
+      <button
+        id="hb"
+        type="button"
+        aria-label="Abrir menu"
+        aria-controls="mn"
+        aria-expanded="false"
+      >
+        <i class="ph ph-list"></i>
+      </button>
     </header>
-    <div id="mn">
-        <a href="#home">Início</a><a href="#sobre">Sobre Mim</a><a href="#servicos">Tratamentos</a><a href="#ritual">Meu
-            Tratamento</a><a href="#portfolio">Práticas</a>
-        <a href="#contato" class="mc">Agendar</a>
+    <div id="mn" aria-hidden="true">
+      <a href="#home">Início</a><a href="#sobre">Sobre Mim</a
+      ><a href="#servicos">Tratamentos</a><a href="#ritual">Meu Tratamento</a
+      ><a href="#portfolio">Práticas</a>
+      <a href="#contato" class="mc">Agendar</a>
     </div>
 
     <section id="home">
-        <div class="hbg" id="hbg"></div>
-        <div class="hov"></div>
-        <div class="orb o1"></div>
-        <div class="orb o2"></div>
-        <img class="hwm" src="/etetica/static/img/logo.PNG" alt="" aria-hidden="true" />
-        <div class="hcnt">
-            <p class="lbl">Estética Avançada &amp; Bem-estar</p>
-            <h1 id="cms-titulo-hero" class="hh1">
-                Realce a sua <em>beleza natural</em> com excelência.
-            </h1>
-            <p id="cms-subtitulo-hero" class="hsb">
-                Protocolos personalizados para cuidar do seu corpo, devolvendo a sua
-                autoestima e confiança.
-            </p>
-            <div class="hbt">
-                <a href="#contato" class="btn wa mag"><i class="ph-fill ph-whatsapp-logo" style="font-size: 1.2rem"></i>
-                    Falar no WhatsApp</a>
-                <a href="#ritual" class="btn ol mag">Descobrir meu tratamento <i class="ph ph-arrow-down"></i></a>
-            </div>
+      <div class="hbg" id="hbg"></div>
+      <div class="hov"></div>
+      <div class="orb o1"></div>
+      <div class="orb o2"></div>
+      <img
+        class="hwm"
+        src="/etetica/static/img/logo.PNG"
+        alt=""
+        aria-hidden="true"
+      />
+      <div class="hcnt">
+        <p class="lbl">Estética Avançada &amp; Bem-estar</p>
+        <h1 id="cms-titulo-hero" class="hh1">
+          Realce a sua <em>beleza natural</em> com excelência.
+        </h1>
+        <p id="cms-subtitulo-hero" class="hsb">
+          Protocolos personalizados para cuidar do seu corpo, devolvendo a sua
+          autoestima e confiança.
+        </p>
+        <div class="hbt">
+          <a href="#contato" class="btn wa mag"
+            ><i class="ph-fill ph-whatsapp-logo" style="font-size: 1.2rem"></i>
+            Falar no WhatsApp</a
+          >
+          <a href="#ritual" class="btn ol mag"
+            >Descobrir meu tratamento <i class="ph ph-arrow-down"></i
+          ></a>
         </div>
+      </div>
     </section>
 
     <section id="sobre" class="sec">
-        <div class="con">
-            <div class="abg">
-                <div class="abw rv">
-                    <div class="abr"></div>
-                    <img id="cms-foto-sobre" src="/img/gomes.jpeg" alt="Mikaely Yasmin Gomes" class="abi" />
-                </div>
-                <div class="abt">
-                    <div class="lbl rv">Quem sou eu</div>
-                    <h2 class="rv d1">Olá, sou a <em>Mikaely Yasmin</em></h2>
-                    <div id="cms-texto-sobre">
-                        <p class="rv d2">
-                            Sou técnica em estética, apaixonada pela ciência da beleza e
-                            pelo cuidado humano. Cada procedimento é realizado com precisão,
-                            atenção e muito carinho pelo bem-estar das minhas clientes.
-                        </p>
-                        <p class="rv d2">
-                            Com formação sólida e atualização constante, ofereço tratamentos
-                            que unem tecnologia moderna e toque personalizado para
-                            resultados que realmente fazem a diferença.
-                        </p>
-                    </div>
-                    <div class="sts">
-                        <div class="st rv d1">
-                            <div class="stn" data-t="50" data-s="+">0</div>
-                            <div class="stl">Clientes atendidas</div>
-                        </div>
-                        <div class="st rv d2">
-                            <div class="stn" data-t="5" data-s="+">0</div>
-                            <div class="stl">Tratamentos</div>
-                        </div>
-                        <div class="st rv d3">
-                            <div class="stn" data-t="100" data-s="%">0</div>
-                            <div class="stl">Dedicação total</div>
-                        </div>
-                    </div>
-                </div>
+      <div class="con">
+        <div class="abg">
+          <div class="abw rv">
+            <div class="abr"></div>
+            <img
+              id="cms-foto-sobre"
+              src="/img/gomes.jpeg"
+              alt="Mikaely Yasmin Gomes"
+              class="abi"
+            />
+          </div>
+          <div class="abt">
+            <div class="lbl rv">Quem sou eu</div>
+            <h2 class="rv d1">Olá, sou a <em>Mikaely Yasmin</em></h2>
+            <div id="cms-texto-sobre">
+              <p class="rv d2">
+                Sou técnica em estética, apaixonada pela ciência da beleza e
+                pelo cuidado humano. Cada procedimento é realizado com precisão,
+                atenção e muito carinho pelo bem-estar das minhas clientes.
+              </p>
+              <p class="rv d2">
+                Com formação sólida e atualização constante, ofereço tratamentos
+                que unem tecnologia moderna e toque personalizado para
+                resultados que realmente fazem a diferença.
+              </p>
             </div>
+            <div class="sts">
+              <div class="st rv d1">
+                <div class="stn" data-t="50" data-s="+">0</div>
+                <div class="stl">Clientes atendidas</div>
+              </div>
+              <div class="st rv d2">
+                <div class="stn" data-t="5" data-s="+">0</div>
+                <div class="stl">Tratamentos</div>
+              </div>
+              <div class="st rv d3">
+                <div class="stn" data-t="100" data-s="%">0</div>
+                <div class="stl">Dedicação total</div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="servicos" class="sec">
-        <div class="con">
-            <div class="svh">
-                <div>
-                    <div class="lbl rv">Especialidades</div>
-                    <h2 class="rv d1">Tratamentos <em>exclusivos</em></h2>
-                </div>
-                <p class="rv d2">
-                    Cada protocolo é adaptado individualmente para garantir os melhores
-                    resultados para o seu tipo de pele e necessidade.
-                </p>
-            </div>
-            <div class="svg">
-                <div class="svc rv d1">
-                    <div class="svi"><i class="ph ph-sparkle"></i></div>
-                    <h4>Auriculoterapia</h4>
-                    <p>
-                        A auriculoterapia é uma técnica que estimula pontos na orelha para
-                        tratar dores e equilibrar o corpo, baseada na Medicina Tradicional
-                        Chinesa, onde a orelha representa um mapa do organismo.
-                    </p>
-                    <a href="#contato" class="sva" data-wa="Olá! Quero saber mais sobre a Auriculoterapia."
-                        target="_blank" rel="noopener">Agendar este tratamento <i class="ph ph-arrow-right"></i></a>
-                </div>
-                <div class="svc rv d2">
-                    <div class="svi"><i class="ph ph-drop"></i></div>
-                    <h4>Massagem Relaxante</h4>
-                    <p>
-                        Massagem que estimula o sistema linfático, reduz inchaço, melhora
-                        a circulação e auxilia na desintoxicação.
-                    </p>
-                    <a href="#contato" class="sva" data-wa="Olá! Quero saber mais sobre a Massagem Relaxante."
-                        target="_blank" rel="noopener">Agendar este tratamento <i class="ph ph-arrow-right"></i></a>
-                </div>
-                <div class="svc rv d3">
-                    <div class="svi"><i class="ph ph-hands-clapping"></i></div>
-                    <h4>Ventosaterapia</h4>
-                    <p>
-                        A ventosaterapia é uma técnica antiga que usa ventosas para criar
-                        sucção na pele, estimulando a circulação e ajudando a aliviar
-                        tensões musculares.
-                    </p>
-                    <a href="#contato" class="sva" data-wa="Olá! Quero saber mais sobre a Ventosaterapia."
-                        target="_blank" rel="noopener">Agendar este tratamento <i class="ph ph-arrow-right"></i></a>
-                </div>
-            </div>
+      <div class="con">
+        <div class="svh">
+          <div>
+            <div class="lbl rv">Especialidades</div>
+            <h2 class="rv d1">Tratamentos <em>exclusivos</em></h2>
+          </div>
+          <p class="rv d2">
+            Cada protocolo é adaptado individualmente para garantir os melhores
+            resultados para o seu tipo de pele e necessidade.
+          </p>
         </div>
+        <div class="svg">
+          <div class="svc rv d1">
+            <div class="svi"><i class="ph ph-sparkle"></i></div>
+            <h4>Auriculoterapia</h4>
+            <p>
+              A auriculoterapia é uma técnica que estimula pontos na orelha para
+              tratar dores e equilibrar o corpo, baseada na Medicina Tradicional
+              Chinesa, onde a orelha representa um mapa do organismo.
+            </p>
+            <a
+              href="#contato"
+              class="sva"
+              data-wa="Olá! Quero saber mais sobre a Auriculoterapia."
+              target="_blank"
+              rel="noopener"
+              >Agendar este tratamento <i class="ph ph-arrow-right"></i
+            ></a>
+          </div>
+          <div class="svc rv d2">
+            <div class="svi"><i class="ph ph-drop"></i></div>
+            <h4>Massagem Relaxante</h4>
+            <p>
+              Massagem que estimula o sistema linfático, reduz inchaço, melhora
+              a circulação e auxilia na desintoxicação.
+            </p>
+            <a
+              href="#contato"
+              class="sva"
+              data-wa="Olá! Quero saber mais sobre a Massagem Relaxante."
+              target="_blank"
+              rel="noopener"
+              >Agendar este tratamento <i class="ph ph-arrow-right"></i
+            ></a>
+          </div>
+          <div class="svc rv d3">
+            <div class="svi"><i class="ph ph-hands-clapping"></i></div>
+            <h4>Ventosaterapia</h4>
+            <p>
+              A ventosaterapia é uma técnica antiga que usa ventosas para criar
+              sucção na pele, estimulando a circulação e ajudando a aliviar
+              tensões musculares.
+            </p>
+            <a
+              href="#contato"
+              class="sva"
+              data-wa="Olá! Quero saber mais sobre a Ventosaterapia."
+              target="_blank"
+              rel="noopener"
+              >Agendar este tratamento <i class="ph ph-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="ritual" class="sec">
-        <div class="con">
-            <div class="lbl rv">Em dúvida por onde começar?</div>
-            <h2 class="rv d1">Descubra o tratamento <em>ideal para você</em></h2>
-            <div class="qz rv d2" id="qz" aria-live="polite"></div>
-        </div>
+      <div class="con">
+        <div class="lbl rv">Em dúvida por onde começar?</div>
+        <h2 class="rv d1">Descubra o tratamento <em>ideal para você</em></h2>
+        <div class="qz rv d2" id="qz" aria-live="polite"></div>
+      </div>
     </section>
 
     <section id="portfolio" class="sec">
-        <div class="con">
-            <div class="glh">
-                <div class="lbl rv">O Meu Trabalho</div>
-                <h2 class="rv d1">Galeria de Práticas</h2>
-            </div>
-            <div id="cms-galeria-container" class="glg">
-                <div class="gi rv d1"><img src="/img/1.jpeg" alt="Prática 1" /></div>
-                <div class="gi rv d2"><img src="/img/2.jpeg" alt="Prática 2" /></div>
-                <div class="gi rv d3"><img src="/img/3.jpeg" alt="Prática 3" /></div>
-                <div class="gi rv d1"><img src="/img/4.jpeg" alt="Prática 4" /></div>
-            </div>
+      <div class="con">
+        <div class="glh">
+          <div class="lbl rv">O Meu Trabalho</div>
+          <h2 class="rv d1">Galeria de Práticas</h2>
         </div>
+        <div id="cms-galeria-container" class="glg">
+          <div class="gi rv d1" role="button" tabindex="0" aria-label="Ampliar prática 1"><img src="/img/1.jpeg" alt="Prática 1" /></div>
+          <div class="gi rv d2" role="button" tabindex="0" aria-label="Ampliar prática 2"><img src="/img/2.jpeg" alt="Prática 2" /></div>
+          <div class="gi rv d3" role="button" tabindex="0" aria-label="Ampliar prática 3"><img src="/img/3.jpeg" alt="Prática 3" /></div>
+          <div class="gi rv d1" role="button" tabindex="0" aria-label="Ampliar prática 4"><img src="/img/4.jpeg" alt="Prática 4" /></div>
+        </div>
+      </div>
     </section>
 
     <section id="contato" class="sec">
-        <div class="con">
-            <div class="ctc rv">
-                <div class="lbl">Entre em Contato</div>
-                <h3>Pronta para a sua <em>melhor versão?</em></h3>
-                <p>
-                    Agende a sua consulta agora mesmo ou acompanhe o meu trabalho nas
-                    redes sociais.
-                </p>
-                <div class="aviso">
-                    <i class="ph-fill ph-flower-lotus" style="font-size: 1.3rem"></i><span><strong>Aviso:</strong>
-                        atendimento exclusivo para o público
-                        feminino.</span>
-                </div>
-                <div class="ctb">
-                    <a data-wa="Olá, me interessei pelo seu trabalho de estética e gostaria de marcar um horário com você."
-                        href="https://wa.me/553173663820" target="_blank" rel="noopener" class="btn wa mag"><i
-                            class="ph-fill ph-whatsapp-logo" style="font-size: 1.25rem"></i>
-                        Agendar via WhatsApp</a>
-                    <a href="https://www.instagram.com/mikaely_gomes.0?igsh=MWR3MmF1ZHV3cGIyMg==" target="_blank"
-                        rel="noopener" class="btn ig mag"><i class="ph-fill ph-instagram-logo"
-                            style="font-size: 1.25rem"></i>
-                        Siga no Instagram</a>
-                </div>
-                <button class="shr" id="shr">
-                    <i class="ph ph-share-network"></i>
-                    <span>Indicar para uma amiga</span>
-                </button>
-            </div>
+      <div class="con">
+        <div class="ctc rv">
+          <div class="lbl">Entre em Contato</div>
+          <h3>Pronta para a sua <em>melhor versão?</em></h3>
+          <p>
+            Agende a sua consulta agora mesmo ou acompanhe o meu trabalho nas
+            redes sociais.
+          </p>
+          <div class="aviso">
+            <i class="ph-fill ph-flower-lotus" style="font-size: 1.3rem"></i
+            ><span
+              ><strong>Aviso:</strong> atendimento exclusivo para o público
+              feminino.</span
+            >
+          </div>
+          <div class="ctb">
+            <a
+              data-wa="Olá, me interessei pelo seu trabalho de estética e gostaria de marcar um horário com você."
+              href="https://wa.me/553173663820"
+              target="_blank"
+              rel="noopener"
+              class="btn wa mag"
+              ><i
+                class="ph-fill ph-whatsapp-logo"
+                style="font-size: 1.25rem"
+              ></i>
+              Agendar via WhatsApp</a
+            >
+            <a
+              href="https://www.instagram.com/mikaely_gomes.0?igsh=MWR3MmF1ZHV3cGIyMg=="
+              target="_blank"
+              rel="noopener"
+              class="btn ig mag"
+              ><i
+                class="ph-fill ph-instagram-logo"
+                style="font-size: 1.25rem"
+              ></i>
+              Siga no Instagram</a
+            >
+          </div>
+          <button class="shr" id="shr" type="button">
+            <i class="ph ph-share-network"></i>
+            <span>Indicar para uma amiga</span>
+          </button>
         </div>
+      </div>
     </section>
 
     <footer>
-        <div class="fti">
-            <div class="ftb">MIKAELY YASMIN | ESTÉTICA</div>
-            <div class="ftc">
-                &copy; <span id="year"></span> Mikaely Yasmin Gomes.
-                <a href="direitos-autorais.html">Todos os direitos reservados. <i class="ph ph-link"></i></a>
-            </div>
-            <span class="dev-info">Desenvolvido por
-                <a href="https://github.com/lkaua-dev" target="_blank" rel="noopener"><i
-                        class="ph-fill ph-github-logo"></i>Lucas</a></span>
+      <div class="fti">
+        <div class="ftb">MIKAELY YASMIN | ESTÉTICA</div>
+        <div class="ftc">
+          &copy; <span id="year"></span> Mikaely Yasmin Gomes.
+          <a href="direitos-autorais.html"
+            >Todos os direitos reservados. <i class="ph ph-link"></i
+          ></a>
         </div>
+        <span class="dev-info"
+          >Desenvolvido por
+          <a href="https://github.com/lkaua-dev" target="_blank" rel="noopener"
+            ><i class="ph-fill ph-github-logo"></i>Lucas</a
+          ></span
+        >
+      </div>
     </footer>
 
-    <a id="fab" data-wa="Olá! Vim pelo seu site e gostaria de agendar." href="https://wa.me/553173663820"
-        target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><i class="ph-fill ph-whatsapp-logo"></i></a>
+    <a
+      id="fab"
+      data-wa="Olá! Vim pelo seu site e gostaria de agendar."
+      href="https://wa.me/553173663820"
+      target="_blank"
+      rel="noopener"
+      aria-label="Falar no WhatsApp"
+      ><i class="ph-fill ph-whatsapp-logo"></i
+    ></a>
 
     <script>
-        const $ = (s) => document.querySelector(s),
-            $$ = (s) => [...document.querySelectorAll(s)];
-        const NUM = "553173663820",
-            wa = (t) => `https://wa.me/${NUM}?text=${encodeURIComponent(t)}`;
-        $("#year").textContent = new Date().getFullYear();
-        $$("[data-wa]").forEach((a) => (a.href = wa(a.dataset.wa)));
-        const fine = matchMedia("(hover:hover) and (pointer:fine)").matches;
+      const $ = (s) => document.querySelector(s),
+        $$ = (s) => [...document.querySelectorAll(s)];
+      const NUM = "553173663820",
+        wa = (t) => `https://wa.me/${NUM}?text=${encodeURIComponent(t)}`;
+      $("#year").textContent = new Date().getFullYear();
+      $$("[data-wa]").forEach((a) => (a.href = wa(a.dataset.wa)));
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const fine =
+        matchMedia("(hover:hover) and (pointer:fine)").matches && !reduceMotion;
 
-        /* Cursor, botões magnéticos e brilho nos cards (só com mouse) */
-        if (fine) {
-            document.documentElement.classList.add("fine");
-            const cd = $("#cd"),
-                cr = $("#cr");
-            let mx = 0,
-                my = 0,
-                rx = 0,
-                ry = 0;
-            addEventListener("mousemove", (e) => {
-                mx = e.clientX;
-                my = e.clientY;
-                cd.style.left = mx + "px";
-                cd.style.top = my + "px";
-            });
-            (function f() {
-                rx += (mx - rx) * 0.13;
-                ry += (my - ry) * 0.13;
-                cr.style.left = rx + "px";
-                cr.style.top = ry + "px";
-                requestAnimationFrame(f);
-            })();
-            document.addEventListener("mouseover", (e) =>
-                cr.classList.toggle("on", !!e.target.closest("a,button")),
-            );
-            $$(".mag").forEach((b) => {
-                b.addEventListener("mousemove", (e) => {
-                    const r = b.getBoundingClientRect();
-                    b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.18}px,${(e.clientY - r.top - r.height / 2) * 0.28}px)`;
-                });
-                b.addEventListener("mouseleave", () => (b.style.transform = ""));
-            });
-            $$(".svc").forEach((c) =>
-                c.addEventListener("mousemove", (e) => {
-                    const r = c.getBoundingClientRect();
-                    c.style.setProperty("--mx", e.clientX - r.left + "px");
-                    c.style.setProperty("--my", e.clientY - r.top + "px");
-                }),
-            );
-        }
-
-        /* Menu mobile */
-        const hb = $("#hb"),
-            mn = $("#mn");
-        function menu(o) {
-            mn.classList.toggle("open", o);
-            hb.setAttribute("aria-expanded", o);
-            hb.innerHTML = `<i class="ph ph-${o ? "x" : "list"}"></i>`;
-        }
-        hb.onclick = (e) => {
-            e.stopPropagation();
-            menu(!mn.classList.contains("open"));
-        };
-        mn.querySelectorAll("a").forEach((a) => (a.onclick = () => menu(false)));
-        document.addEventListener("click", (e) => {
-            if (!mn.contains(e.target)) menu(false);
+      /* Cursor, botões magnéticos e brilho nos cards (só com mouse) */
+      if (fine) {
+        document.documentElement.classList.add("fine");
+        const cd = $("#cd"),
+          cr = $("#cr");
+        let mx = 0,
+          my = 0,
+          rx = 0,
+          ry = 0;
+        addEventListener("mousemove", (e) => {
+          mx = e.clientX;
+          my = e.clientY;
+          cd.style.left = mx + "px";
+          cd.style.top = my + "px";
         });
-
-        /* Scroll: navbar, progresso, parallax, botão flutuante */
-        const nb = $("#nb"),
-            hbg = $("#hbg"),
-            pg = $("#pg"),
-            fab = $("#fab");
-        addEventListener(
-            "scroll",
-            () => {
-                const y = scrollY,
-                    h = document.documentElement.scrollHeight - innerHeight;
-                nb.classList.toggle("solid", y > 24);
-                pg.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
-                fab.classList.toggle("show", y > innerHeight * 0.7);
-                if (y < innerHeight)
-                    hbg.style.transform = `scale(1.1) translateY(${y * 0.25}px)`;
-            },
-            { passive: true },
-        );
-
-        /* Revelação, contadores e seção ativa no menu */
-        const rev = new IntersectionObserver(
-            (es) =>
-                es.forEach((e) => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add("in");
-                        rev.unobserve(e.target);
-                    }
-                }),
-            { threshold: 0.14 },
-        );
-        $$(".rv").forEach((el) => rev.observe(el));
-        const cnt = new IntersectionObserver(
-            (es) =>
-                es.forEach((e) => {
-                    if (!e.isIntersecting) return;
-                    const el = e.target,
-                        t = +el.dataset.t,
-                        s = el.dataset.s || "+";
-                    let c = 0;
-                    const id = setInterval(() => {
-                        c = Math.min(t, c + t / 55);
-                        el.textContent = Math.floor(c) + s;
-                        if (c >= t) clearInterval(id);
-                    }, 22);
-                    cnt.unobserve(el);
-                }),
-            { threshold: 0.6 },
-        );
-        $$(".stn[data-t]").forEach((c) => cnt.observe(c));
-        const links = $$(".nv a,#mn a:not(.mc)");
-        const spy = new IntersectionObserver(
-            (es) =>
-                es.forEach((e) => {
-                    if (e.isIntersecting)
-                        links.forEach((a) =>
-                            a.classList.toggle(
-                                "act",
-                                a.getAttribute("href") === "#" + e.target.id,
-                            ),
-                        );
-                }),
-            { rootMargin: "-45% 0px -50% 0px" },
-        );
-        $$("section[id]").forEach((s) => spy.observe(s));
-
-        /* Galeria com zoom (funciona também para fotos vindas do CMS) */
-        const zm = $("#zoomModal"),
-            zi = $("#zoomImg");
-        const closeZ = () => {
-            zm.classList.remove("active");
-            document.body.style.overflow = "";
-        };
-        $("#cms-galeria-container").addEventListener("click", (e) => {
-            const i = e.target.closest(".gi")?.querySelector("img");
-            if (i) {
-                zi.src = i.src;
-                zm.classList.add("active");
-                document.body.style.overflow = "hidden";
-            }
-        });
-        $(".zoomClose").onclick = closeZ;
-        zm.onclick = (e) => {
-            if (e.target === zm) closeZ();
-        };
-        addEventListener("keydown", (e) => {
-            if (e.key === "Escape") closeZ();
-        });
-
-        /* Recomendação personalizada */
-        const T = {
-            aur: {
-                n: "Auriculoterapia",
-                d: "Estímulos precisos em pontos da orelha para equilibrar o corpo e aliviar dores. Uma sessão calma, focada e sem pressa.",
-            },
-            mas: {
-                n: "Massagem Relaxante",
-                d: "Toque suave e envolvente que melhora a circulação, reduz o inchaço e deixa o corpo leve.",
-            },
-            ven: {
-                n: "Ventosaterapia",
-                d: "Sucção na pele que ativa a circulação e solta tensões musculares acumuladas. Revigorante e profunda.",
-            },
-        };
-        const Q = [
-            {
-                q: "O que você mais quer sentir depois da sessão?",
-                o: [
-                    ["Alívio de dores e tensão", { ven: 2, aur: 1 }],
-                    ["Corpo leve e menos inchado", { mas: 2 }],
-                    ["Mente calma e equilíbrio", { aur: 2, mas: 1 }],
-                ],
-            },
-            {
-                q: "Que tipo de experiência você prefere?",
-                o: [
-                    ["Uma técnica ancestral e focada", { aur: 2 }],
-                    ["Um toque suave e envolvente", { mas: 2 }],
-                    ["Algo intenso e revigorante", { ven: 2 }],
-                ],
-            },
-        ];
-        const qz = $("#qz");
-        let step = 0,
-            sc;
-        function render() {
-            if (step < Q.length) {
-                const x = Q[step];
-                qz.innerHTML = `<div class="qbar">${Q.map((_, i) => `<i class="${i <= step ? "on" : ""}"></i>`).join("")}</div><div class="qs"><p class="qq">${x.q}</p><div class="qo">${x.o.map((o, i) => `<button data-i="${i}">${o[0]}</button>`).join("")}</div></div>`;
-                qz.querySelectorAll("button").forEach(
-                    (b) =>
-                    (b.onclick = () => {
-                        for (const k in x.o[b.dataset.i][1])
-                            sc[k] = (sc[k] || 0) + x.o[b.dataset.i][1][k];
-                        step++;
-                        render();
-                    }),
-                );
-            } else {
-                const k = Object.keys(T).sort(
-                    (a, b) => (sc[b] || 0) - (sc[a] || 0),
-                )[0],
-                    t = T[k];
-                qz.innerHTML = `<div class="qs qr"><p class="lbl">Seu tratamento ideal</p><h3>${t.n}</h3><p>${t.d}</p><a class="btn wa mag" target="_blank" rel="noopener" href="${wa(`Olá! Fiz o teste no seu site e o resultado foi ${t.n}. Gostaria de agendar uma avaliação.`)}"><i class="ph-fill ph-whatsapp-logo"></i> Agendar ${t.n}</a><button class="qrs" id="qrs">Refazer o teste</button><small>Uma sugestão para começar: na avaliação, o protocolo é definido para você.</small></div>`;
-                $("#qrs").onclick = () => {
-                    step = 0;
-                    sc = {};
-                    render();
-                };
-            }
-        }
-        sc = {};
-        render();
-
-        /* Compartilhar */
-        $("#shr").onclick = async () => {
-            const d = {
-                title: "Mikaely Yasmin | Estética",
-                text: "Conheça o trabalho da Mikaely Yasmin Gomes em estética e bem-estar.",
-                url: location.href,
-            };
-            try {
-                if (navigator.share) await navigator.share(d);
-                else {
-                    await navigator.clipboard.writeText(d.url);
-                    $("#shr span").textContent = "Link copiado!";
-                }
-            } catch (e) { }
-        };
-
-        /* CMS (dados.json) */
-        (async () => {
-            try {
-                const r = await fetch("dados.json");
-                if (!r.ok) return;
-                const d = await r.json();
-                if (d.titulo_hero) $("#cms-titulo-hero").innerHTML = d.titulo_hero;
-                if (d.subtitulo_hero)
-                    $("#cms-subtitulo-hero").textContent = d.subtitulo_hero;
-                if (d.foto_sobre) $("#cms-foto-sobre").src = d.foto_sobre;
-                if (d.texto_sobre) $("#cms-texto-sobre").innerHTML = d.texto_sobre;
-                if (d.galeria && d.galeria.length) {
-                    const c = $("#cms-galeria-container");
-                    c.innerHTML = "";
-                    d.galeria.forEach((i) => {
-                        const div = document.createElement("div");
-                        div.className = "gi rv";
-                        div.innerHTML = `<img src="${i.foto}" alt="Resultado">`;
-                        c.appendChild(div);
-                        rev.observe(div);
-                    });
-                }
-            } catch (e) {
-                console.error("Erro CMS:", e);
-            }
+        (function f() {
+          rx += (mx - rx) * 0.13;
+          ry += (my - ry) * 0.13;
+          cr.style.left = rx + "px";
+          cr.style.top = ry + "px";
+          requestAnimationFrame(f);
         })();
+        document.addEventListener("mouseover", (e) =>
+          cr.classList.toggle("on", !!e.target.closest("a,button")),
+        );
+        $$(".mag").forEach((b) => {
+          b.addEventListener("mousemove", (e) => {
+            const r = b.getBoundingClientRect();
+            b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.18}px,${(e.clientY - r.top - r.height / 2) * 0.28}px)`;
+          });
+          b.addEventListener("mouseleave", () => (b.style.transform = ""));
+        });
+        $$(".svc").forEach((c) =>
+          c.addEventListener("mousemove", (e) => {
+            const r = c.getBoundingClientRect();
+            c.style.setProperty("--mx", e.clientX - r.left + "px");
+            c.style.setProperty("--my", e.clientY - r.top + "px");
+          }),
+        );
+      }
 
-        /* Netlify Identity */
-        if (window.netlifyIdentity)
-            netlifyIdentity.on("init", (u) => {
-                if (!u)
-                    netlifyIdentity.on("login", () => (location.href = "/admin/"));
+      /* Menu mobile */
+      const hb = $("#hb"),
+        mn = $("#mn");
+      function menu(o) {
+        mn.classList.toggle("open", o);
+        document.documentElement.classList.toggle("menu-open", o);
+        hb.setAttribute("aria-expanded", String(o));
+        hb.setAttribute("aria-label", o ? "Fechar menu" : "Abrir menu");
+        mn.setAttribute("aria-hidden", String(!o));
+        hb.innerHTML = `<i class="ph ph-${o ? "x" : "list"}"></i>`;
+      }
+      hb.onclick = (e) => {
+        e.stopPropagation();
+        menu(!mn.classList.contains("open"));
+      };
+      mn.querySelectorAll("a").forEach((a) => (a.onclick = () => menu(false)));
+      document.addEventListener("click", (e) => {
+        if (!mn.contains(e.target) && !hb.contains(e.target)) menu(false);
+      });
+      const mobileMenuQuery = matchMedia("(max-width: 900px)");
+      const syncMenuWithViewport = (e) => {
+        if (!e.matches) menu(false);
+      };
+      if (mobileMenuQuery.addEventListener)
+        mobileMenuQuery.addEventListener("change", syncMenuWithViewport);
+      else mobileMenuQuery.addListener(syncMenuWithViewport);
+
+      /* Scroll: navbar, progresso, parallax, botão flutuante */
+      const nb = $("#nb"),
+        hbg = $("#hbg"),
+        pg = $("#pg"),
+        fab = $("#fab");
+      addEventListener(
+        "scroll",
+        () => {
+          const y = scrollY,
+            h = document.documentElement.scrollHeight - innerHeight;
+          nb.classList.toggle("solid", y > 24);
+          pg.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
+          fab.classList.toggle("show", y > innerHeight * 0.7);
+          if (!reduceMotion && y < innerHeight)
+            hbg.style.transform = `scale(1.1) translateY(${y * 0.25}px)`;
+        },
+        { passive: true },
+      );
+
+      /* Revelação, contadores e seção ativa no menu */
+      const rev = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              rev.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.14 },
+      );
+      $$(".rv").forEach((el) => rev.observe(el));
+      const cnt = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const el = e.target,
+              t = +el.dataset.t,
+              s = el.dataset.s || "+";
+            let c = 0;
+            const id = setInterval(() => {
+              c = Math.min(t, c + t / 55);
+              el.textContent = Math.floor(c) + s;
+              if (c >= t) clearInterval(id);
+            }, 22);
+            cnt.unobserve(el);
+          }),
+        { threshold: 0.6 },
+      );
+      $$(".stn[data-t]").forEach((c) => cnt.observe(c));
+      const links = $$(".nv a,#mn a:not(.mc)");
+      const spy = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting)
+              links.forEach((a) =>
+                a.classList.toggle(
+                  "act",
+                  a.getAttribute("href") === "#" + e.target.id,
+                ),
+              );
+          }),
+        { rootMargin: "-45% 0px -50% 0px" },
+      );
+      $$("section[id]").forEach((s) => spy.observe(s));
+
+      /* Galeria com zoom (funciona também para fotos vindas do CMS) */
+      const zm = $("#zoomModal"),
+        zi = $("#zoomImg");
+      let lastFocus = null;
+      const openZ = (i) => {
+        lastFocus = document.activeElement;
+        zi.src = i.src;
+        zi.alt = i.alt ? `${i.alt} ampliada` : "Imagem ampliada";
+        zm.classList.add("active");
+        zm.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        $(".zoomClose").focus({ preventScroll: true });
+      };
+      const closeZ = () => {
+        zm.classList.remove("active");
+        zm.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        if (lastFocus && typeof lastFocus.focus === "function")
+          lastFocus.focus({ preventScroll: true });
+      };
+      $("#cms-galeria-container").addEventListener("click", (e) => {
+        const i = e.target.closest(".gi")?.querySelector("img");
+        if (i) openZ(i);
+      });
+      $("#cms-galeria-container").addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        const i = e.target.closest(".gi")?.querySelector("img");
+        if (i) {
+          e.preventDefault();
+          openZ(i);
+        }
+      });
+      $(".zoomClose").onclick = closeZ;
+      zm.onclick = (e) => {
+        if (e.target === zm) closeZ();
+      };
+      addEventListener("keydown", (e) => {
+        if (e.key !== "Escape") return;
+        if (zm.classList.contains("active")) closeZ();
+        if (mn.classList.contains("open")) menu(false);
+      });
+
+      /* Recomendação personalizada */
+      const T = {
+        aur: {
+          n: "Auriculoterapia",
+          d: "Estímulos precisos em pontos da orelha para equilibrar o corpo e aliviar dores. Uma sessão calma, focada e sem pressa.",
+        },
+        mas: {
+          n: "Massagem Relaxante",
+          d: "Toque suave e envolvente que melhora a circulação, reduz o inchaço e deixa o corpo leve.",
+        },
+        ven: {
+          n: "Ventosaterapia",
+          d: "Sucção na pele que ativa a circulação e solta tensões musculares acumuladas. Revigorante e profunda.",
+        },
+      };
+      const Q = [
+        {
+          q: "O que você mais quer sentir depois da sessão?",
+          o: [
+            ["Alívio de dores e tensão", { ven: 2, aur: 1 }],
+            ["Corpo leve e menos inchado", { mas: 2 }],
+            ["Mente calma e equilíbrio", { aur: 2, mas: 1 }],
+          ],
+        },
+        {
+          q: "Que tipo de experiência você prefere?",
+          o: [
+            ["Uma técnica ancestral e focada", { aur: 2 }],
+            ["Um toque suave e envolvente", { mas: 2 }],
+            ["Algo intenso e revigorante", { ven: 2 }],
+          ],
+        },
+      ];
+      const qz = $("#qz");
+      let step = 0,
+        sc;
+      function render() {
+        if (step < Q.length) {
+          const x = Q[step];
+          qz.innerHTML = `<div class="qbar">${Q.map((_, i) => `<i class="${i <= step ? "on" : ""}"></i>`).join("")}</div><div class="qs"><p class="qq">${x.q}</p><div class="qo">${x.o.map((o, i) => `<button type="button" data-i="${i}">${o[0]}</button>`).join("")}</div></div>`;
+          qz.querySelectorAll("button").forEach(
+            (b) =>
+              (b.onclick = () => {
+                for (const k in x.o[b.dataset.i][1])
+                  sc[k] = (sc[k] || 0) + x.o[b.dataset.i][1][k];
+                step++;
+                render();
+              }),
+          );
+        } else {
+          const k = Object.keys(T).sort(
+              (a, b) => (sc[b] || 0) - (sc[a] || 0),
+            )[0],
+            t = T[k];
+          qz.innerHTML = `<div class="qs qr"><p class="lbl">Seu tratamento ideal</p><h3>${t.n}</h3><p>${t.d}</p><a class="btn wa mag" target="_blank" rel="noopener" href="${wa(`Olá! Fiz o teste no seu site e o resultado foi ${t.n}. Gostaria de agendar uma avaliação.`)}"><i class="ph-fill ph-whatsapp-logo"></i> Agendar ${t.n}</a><button class="qrs" id="qrs" type="button">Refazer o teste</button><small>Uma sugestão para começar: na avaliação, o protocolo é definido para você.</small></div>`;
+          $("#qrs").onclick = () => {
+            step = 0;
+            sc = {};
+            render();
+          };
+        }
+      }
+      sc = {};
+      render();
+
+      /* Compartilhar */
+      $("#shr").onclick = async () => {
+        const d = {
+          title: "Mikaely Yasmin | Estética",
+          text: "Conheça o trabalho da Mikaely Yasmin Gomes em estética e bem-estar.",
+          url: location.href,
+        };
+        try {
+          if (navigator.share) await navigator.share(d);
+          else {
+            await navigator.clipboard.writeText(d.url);
+            $("#shr span").textContent = "Link copiado!";
+            setTimeout(() => ($("#shr span").textContent = "Indicar para uma amiga"), 2400);
+          }
+        } catch (e) {}
+      };
+
+      /* CMS (dados.json) */
+      (async () => {
+        try {
+          const r = await fetch("dados.json");
+          if (!r.ok) return;
+          const d = await r.json();
+          if (d.titulo_hero) $("#cms-titulo-hero").innerHTML = d.titulo_hero;
+          if (d.subtitulo_hero)
+            $("#cms-subtitulo-hero").textContent = d.subtitulo_hero;
+          if (d.foto_sobre) $("#cms-foto-sobre").src = d.foto_sobre;
+          if (d.texto_sobre) $("#cms-texto-sobre").innerHTML = d.texto_sobre;
+          if (d.galeria && d.galeria.length) {
+            const c = $("#cms-galeria-container");
+            c.innerHTML = "";
+            d.galeria.forEach((i) => {
+              const div = document.createElement("div");
+              div.className = "gi rv";
+              div.tabIndex = 0;
+              div.setAttribute("role", "button");
+              div.setAttribute("aria-label", "Ampliar imagem da galeria");
+              div.innerHTML = `<img src="${i.foto}" alt="Resultado">`;
+              c.appendChild(div);
+              rev.observe(div);
             });
-    </script>
-</body>
+          }
+        } catch (e) {
+          console.error("Erro CMS:", e);
+        }
+      })();
 
+      /* Netlify Identity */
+      if (window.netlifyIdentity)
+        netlifyIdentity.on("init", (u) => {
+          if (!u)
+            netlifyIdentity.on("login", () => (location.href = "/admin/"));
+        });
+    </script>
+  </body>
 </html>
